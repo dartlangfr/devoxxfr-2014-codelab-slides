@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/devoxx2014.css" id="theme">
 
+    <!-- Come from dartlang -->
+    <link rel="stylesheet" href="lib/css/dartlang.css">
+    <script src="lib/js/dartlang.js"></script>
+
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
         if (window.location.search.match(/print-pdf/gi)) {
@@ -132,7 +136,7 @@ var name:String = "Mathieu";</pre>
             { src: 'plugin/markdown/markdown.js', condition: function () {
                 return !!document.querySelector('[data-markdown]');
             } },
-            //{ src: 'plugin/ace/ace.js', async: true},
+
             { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
                 return !!document.body.classList;
             } },
