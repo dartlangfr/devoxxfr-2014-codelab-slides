@@ -115,6 +115,10 @@ body {
 .reveal .controls div.navigate-down.enabled:hover {
   border-top-color: #0000f1; }
 
+.reveal .controls {
+    height: 140px;
+}
+
 /*********************************************
  * PROGRESS BAR
  *********************************************/
