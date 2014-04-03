@@ -38,72 +38,97 @@
     <![endif]-->
 </head>
 
-<body>
+<body onload="prettyPrint()">
 
 <div class="reveal">
 
-<div class="slides">
+    <div class="slides">
 
-<section data-id="cover"
-         data-background="lib/img/cover-bg.png"
-         data-background-transition="slide"
-         data-transition="linear">
-    <h1>The Dart side of disruption</h1>
+        <section data-id="cover"
+                 data-background="lib/img/cover-bg.png"
+                 data-background-transition="slide"
+                 data-transition="linear">
+            <h1>The Dart side of disruption</h1>
 
-    <div class="orange">&nbsp;</div>
-</section>
+            <div class="orange">&nbsp;</div>
+            <h4></h4>
+        </section>
 
-<section
-         data-background="lib/img/title-bg.png"
-         data-background-transition="slide"
-         data-transition="linear"
-         class="header">
-    <div class="rotate45">
-        <div class="cyan">&nbsp;</div>
-        <div class="orange">&nbsp;</div>
-        <div class="white">&nbsp;</div>
-        <h2 class="text-white">Titre</h2>
+        <section
+                data-background="lib/img/title-bg.png"
+                data-background-transition="slide"
+                data-transition="linear"
+                class="header">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2 class="text-white">Introduction au langage</h2>
+            </div>
+        </section>
+
+        <section data-id="dart"
+                 data-background="lib/img/title2-bg.png"
+                 data-background-transition="slide"
+                 data-transition="linear"
+                 class="header">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2>Titre2</h2>
+            </div>
+        </section>
+
+
+        <section data-id="intro-main"
+                 data-background="lib/img/slide-devoxx-bg.png"
+                 data-background-size="6% 90%"
+                 data-background-transition="slide"
+                 data-background-position="0% 25%">
+            <h4>Hello</h4>
+                <pre class="programlisting">
+                    <em><span class="remark">lang-dart</span></em>
+                <code>
+void main(){
+    print("Hello Devoxx France");
+}
+                </code>
+         </pre>
+        </section>
+
+        <section data-id="intro-class-1"
+                 data-background="lib/img/slide-devoxx-bg.png"
+                 data-background-size="6% 90%"
+                 data-background-transition="slide"
+                 data-background-position="0% 25%">
+            <h4>Classe</h4>
+                <pre class="programlisting">
+                    <em><span class="remark">lang-dart</span></em>
+                <code>
+import 'dart:math';
+
+class Point {
+    num x, y;
+    Point(this.x, this.y);
+    num distanceTo(Point other) {
+        var dx = x - other.x;
+        var dy = y - other.y;
+        return sqrt(dx * dx + dy * dy);
+    }
+    String toString() => "($x, $y)"
+}
+
+                </code>
+         </pre>
+        </section>
+
+    <div id="footer">
+        <span id="hashtag">#dartlang</span>
+        <!--span id="twitter-author">@Author</span-->
     </div>
-</section>
-
-<section data-id="dart"
-         data-background="lib/img/title2-bg.png"
-         data-background-transition="slide"
-         data-transition="linear"
-         class="header">
-    <div class="rotate45">
-        <div class="cyan">&nbsp;</div>
-        <div class="orange">&nbsp;</div>
-        <div class="white">&nbsp;</div>
-        <h2>Titre2</h2>
-    </div>
-</section>
-
-<section data-id="code-js-examples">
-    <h4>Serveur Web</h4>
-        <pre data-lang="javascript" data-writable="false" class="code">function func (foo){
-// Je suis du code JS
-return foo[0];
-        }</pre>
-</section>
-
-<section data-id="dart-type"
-         data-background="lib/img/slide-devoxx-bg.png"
-         data-background-size="6% 90%"
-         data-background-transition="slide"
-         data-background-position="0% 25%">
-    <pre class="code" data-lang="dart" data-writable="false" style="height: 100px">var name = "Mathieu";
-// ou
-var name:String = "Mathieu";</pre>
-</section>
 
 </div>
-
-<div id="footer">
-    <span id="hashtag">#dv14 #dartlang</span>
-    <!--span id="twitter-author">@Author</span-->
-</div>
-
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
