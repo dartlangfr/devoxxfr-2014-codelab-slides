@@ -85,25 +85,28 @@
                  data-background-size="6% 90%"
                  data-background-transition="slide"
                  data-background-position="0% 25%">
-            <h4>Hello</h4>
+            <h4>Hello world</h4>
             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>void main(){
-    print("Hello Devoxx France");
+    var hello = "Hello Devoxx France"
+    print(hello);
 }
 </pre>
         </section>
 
-        <section data-id="intro-class-1"
-                         data-background="lib/img/slide-devoxx-bg.png"
-                         data-background-size="6% 90%"
-                         data-background-transition="slide"
-                         data-background-position="0% 25%">
-                    <h4>Classe</h4>
-                        <pre class="programlisting">
+        <section>
+            <!-- Fist class -->
+            <section data-id="intro-class-1"
+                             data-background="lib/img/slide-devoxx-bg.png"
+                             data-background-size="6% 90%"
+                             data-background-transition="slide"
+                             data-background-position="0% 25%">
+                        <h4>Classe</h4>
+                            <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>import 'dart:math';
 
 class Point {
-    num x, y;
+    final num x, y;
     Point(this.x, this.y);
     num distanceTo(Point other) {
         var dx = x - other.x;
@@ -114,6 +117,222 @@ class Point {
 }
 </pre>
                 </section>
+
+            <!-- Extends class -->
+            <section data-id="intro-class-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Héritage</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>class Person {
+  Person.fromJson(Map data) {
+    print('in Person');
+  }
+}
+
+class Employee extends Person {
+  // Person n'a pas de constructeur par défaut
+  // Il faut appeler super.fromJson(data).
+  Employee.fromJson(Map data) : super.fromJson(data) {
+    print('in Employee');
+  }
+}
+</pre>
+            </section>
+
+            <!-- Implements class -->
+            <section data-id="intro-class-3"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Implémentation</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>// Person est une interface implicite contient greet().
+class Person {
+  // Dans l'interface mais visible dans la bibliothèque
+  final _name;
+  // Pas dans l'interface car c'est une constructeur
+  Person(this._name);
+  // Méthode de l'interface
+  String greet(who) => 'Hello, $who. I am $_name.';
+}
+
+// Une implémentation de Person.
+class Imposter implements Person {
+  // On le définit mais on ne l'utilise pas
+  final _name = "";
+  String greet(who) => 'Hi $who. Do you know who I am?';
+}
+</pre>
+            </section>
+
+            <!-- Mixin class -->
+            <section data-id="intro-class-4"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Mixin</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>// Un mixin doit
+// étendre Object, ne pas avoir de constructeur, et pas d'appel à super
+abstract class Musical {
+  bool canPlayPiano = false;
+  bool canCompose = false;
+  bool canConduct = false;
+
+  void entertainMe() {
+    if (canPlayPiano) {
+      print('Playing piano');
+    } else if (canConduct) {
+      print('Waving hands');
+    } else {
+      print('Humming to self');
+    }
+  }
+}
+
+class Musician extends Performer with Musical {
+  Musician(String musicianName) {
+    name = musicianName;
+    canConduct = true;
+  }
+}
+</pre>
+            </section>
+
+        </section>
+
+        <!-- Constructors -->
+        <section>
+
+            <!-- Constructeurs nommés -->
+            <section data-id="intro-constructor-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Constructeur nommé</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>import 'dart:math';
+
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  Point.zero() : x = 0, y = 0;
+  Point.polar(num theta, num radius) {
+    x = cos(theta) * radius;
+    y = sin(theta) * radius;
+  }
+}
+
+Point p1 = new Point.zero();
+Point p2 = new Point.polar(0, 1);
+</pre>
+            </section>
+
+            <!-- Factory -->
+
+            <section data-id="intro-constructor-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Factory</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>class Logger {
+  final String name;
+  bool mute = false;
+
+ static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
+
+  factory Logger(String name) {
+    if (_cache.containsKey(name)) {
+      return _cache[name];
+    } else {
+      final logger = new Logger._internal(name);
+      _cache[name] = logger;
+      return logger;
+    }
+  }
+}
+
+Logger logger = new Logger("foo");
+</pre>
+            </section>
+
+        </section>
+
+        </section>
+
+
+
+        </section>
+
+        <!-- Collection -->
+
+        <section>
+
+            <section data-id="intro-collection"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Collection</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>var names = &lt;String&gt;['Alexandre', 'Guillaume', 'Matieu', 'Nicolas'];
+</pre>
+            </section>
+
+            <section data-id="intro-collection"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>// TODO</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>
+</pre>
+            </section>
+
+        </section>
+
+        <!-- Parmeters -->
+
+        <section>
+
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Paramètres optionnels</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>// Affecte les flags bold et hidden à leur valeurs.
+enableFlags({bool bold, bool hidden}) {
+  // ...
+}
+
+enableFlags(bold: true, hidden: false);
+</pre>
+            </section>
+
+            <section data-id="intro-param-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>// TODO</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>
+</pre>
+            </section>
+
+        </section>
+
 
     </div>
 
