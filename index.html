@@ -19,7 +19,9 @@
 
     <!-- Come from dartlang -->
     <link rel="stylesheet" href="lib/css/dartlang.css">
+    <link rel="stylesheet" href="lib/css/dart-style.css">
     <script src="lib/js/dartlang.js"></script>
+
     <link rel="shortcut icon" href="favicon.png">
 
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -87,14 +89,10 @@
                  data-background-transition="slide"
                  data-background-position="0% 25%">
             <h4>Hello</h4>
-                <pre class="programlisting">
-                    <em><span class="remark">lang-dart</span></em>
-                <code>
-void main(){
+<pre class="programlisting"><em><span class="remark">lang-dart</span></em>void main(){
     print("Hello Devoxx France");
 }
-                </code>
-         </pre>
+</pre>
         </section>
 
         <section data-id="intro-class-1"
@@ -104,9 +102,7 @@ void main(){
                  data-background-position="0% 25%">
             <h4>Classe</h4>
                 <pre class="programlisting">
-                    <em><span class="remark">lang-dart</span></em>
-                <code>
-import 'dart:math';
+<em><span class="remark">lang-dart</span></em>import 'dart:math';
 
 class Point {
     num x, y;
@@ -118,9 +114,7 @@ class Point {
     }
     String toString() => "($x, $y)"
 }
-
-                </code>
-         </pre>
+</pre>
         </section>
 
     <div id="footer">
@@ -142,6 +136,7 @@ class Point {
         controls: true,
         progress: true,
         history: true,
+        //slideNumber: true,
         center: true,
         keyboard: true,
 
