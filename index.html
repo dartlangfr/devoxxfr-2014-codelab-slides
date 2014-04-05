@@ -80,20 +80,90 @@
             </div>
         </section>
         -->
-        <section data-id="intro-main"
-                 data-background="lib/img/slide-devoxx-bg.png"
-                 data-background-size="6% 90%"
-                 data-background-transition="slide"
-                 data-background-position="0% 25%">
-            <h4>Hello world</h4>
-            <pre class="programlisting">
+
+        <!-- main -->
+        <section>
+            <section data-id="intro-main-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Hello world</h4>
+                <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>void main(){
     var hello = "Hello Devoxx France"
     print(hello);
 }
 </pre>
+            </section>
+
+            <section data-id="intro-main-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Fonction top level</h4>
+                <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>void main(){
+    var who = "Devoxx France";
+    print(sayHello(who));
+}
+
+String sayHello(String name) =>  "Hello $name"
+</pre>
+            </section>
+
+
         </section>
 
+        <!-- Parameters -->
+
+        <section>
+
+            <!-- Optional named parameters -->
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Paramètres optionnels nommés</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>// Affecte les flags bold et hidden à leur valeurs.
+enableFlags({bool bold, bool hidden}) {
+  // ...
+}
+
+enableFlags(bold: true, hidden: false);
+</pre>
+            </section>
+
+            <!-- Optional named parameters -->
+
+            <section data-id="intro-param-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Paramètres optionnels positionnés</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>String say(String from, String msg, [String device]) {
+  var result = '$from says $msg';
+  if (device != null) {
+    result = '$result with a $device';
+  }
+  return result;
+}
+
+say('Bob', 'Howdy');
+// 'Bob says Howdy'
+say('Bob', 'Howdy', 'smoke signal');
+// 'Bob says Howdy with a smoke signal'
+</pre>
+            </section>
+
+        </section>
+
+        <!-- Classes -->
         <section>
             <!-- Fist class -->
             <section data-id="intro-class-1"
@@ -178,7 +248,7 @@ class Imposter implements Person {
                 <h4>Mixin</h4>
                             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>// Un mixin doit
-// étendre Object, ne pas avoir de constructeur, et pas d'appel à super
+// étendre Object, ne pas avoir de constructeur, pas d'appel à super
 abstract class Musical {
   bool canPlayPiano = false;
   bool canCompose = false;
@@ -247,7 +317,7 @@ Point p2 = new Point.polar(0, 1);
   final String name;
   bool mute = false;
 
- static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
+  static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
 
   factory Logger(String name) {
     if (_cache.containsKey(name)) {
@@ -268,72 +338,139 @@ Logger logger = new Logger("foo");
 
         </section>
 
-
-
-        </section>
-
         <!-- Collection -->
 
         <section>
 
-            <section data-id="intro-collection"
+            <!-- List -->
+            <section data-id="intro-collection-1"
                      data-background="lib/img/slide-devoxx-bg.png"
                      data-background-size="6% 90%"
                      data-background-transition="slide"
                      data-background-position="0% 25%">
-                <h4>Collection</h4>
+                <h4>List</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>var names = &lt;String&gt;['Alexandre', 'Guillaume', 'Matieu', 'Nicolas'];
+<em><span class="remark">lang-dart</span></em>// Creation de listes
+var vegetables = [] // == new List();
+var fruits = ['apples', 'oranges'];
+// Ajout d'éléments
+fruits.add('kiwis');
+fruits.addAll(['grapes', 'bananas']);
+assert(fruits.length == 5);
+
+fruits.sort();
+assert(fruits[0] == 'apples');
 </pre>
             </section>
 
-            <section data-id="intro-collection"
+            <!-- Set -->
+            <section data-id="intro-collection-2"
                      data-background="lib/img/slide-devoxx-bg.png"
                      data-background-size="6% 90%"
                      data-background-transition="slide"
                      data-background-position="0% 25%">
-                <h4>// TODO</h4>
+                <h4>Set</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>
+<em><span class="remark">lang-dart</span></em>// Création
+var ingredients = new Set();
+ingredients.addAll(['gold', 'titanium', 'xenon']);
+
+// Intersection
+var nobleGases = new Set.from(['xenon', 'argon']);
+var intersection = ingredients.intersection(nobleGases);
+assert(intersection.length == 1);
+assert(intersection.contains('xenon'));
 </pre>
             </section>
 
+            <!-- Map -->
+            <section data-id="intro-collection-3"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Map</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>var gifts = {
+  // Keys       Values
+  'first'  : 'partridge',
+  'second' : 'turtledoves',
+  'fifth'  : 'golden rings'
+};
+
+gifts['fourth'] = 'calling birds';    // Add a key-value pair
+
+assert(gifts['first'] == 'partridge')
+assert(gifts.length == 4);
+
+var keys = gifts.keys;
+var values = gifts.values;
+</pre>
+            </section>
+
+            <!-- Lambda-->
+            <section data-id="intro-collection-4"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Lamdba</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
+// La camomille n'est pas caéfinée.
+bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+// Affichage en majuscule
+var loudTeas = teas.map((tea) => tea.toUpperCase());
+loudTeas.forEach(print);
+// Filtrage
+var decaffeinatedTeas = teas.where(isDecaffeinated);
+// Construction map
+var decaffeinatedTeasMap =
+    new Map.fromIterable(teas, value: isDecaffeinated);
+</pre>
         </section>
 
-        <!-- Parmeters -->
+      </section>
 
-        <section>
+         <!-- Async -->
+         <section>
 
-            <section data-id="intro-param-1"
-                     data-background="lib/img/slide-devoxx-bg.png"
-                     data-background-size="6% 90%"
-                     data-background-transition="slide"
-                     data-background-position="0% 25%">
-                <h4>Paramètres optionnels</h4>
+             <!-- Future -->
+             <section data-id="intro-async-1"
+                      data-background="lib/img/slide-devoxx-bg.png"
+                      data-background-size="6% 90%"
+                      data-background-transition="slide"
+                      data-background-position="0% 25%">
+                 <h4>Future</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Affecte les flags bold et hidden à leur valeurs.
-enableFlags({bool bold, bool hidden}) {
-  // ...
-}
+<em><span class="remark">lang-dart</span></em>Future result = costlyQuery();
 
-enableFlags(bold: true, hidden: false);
+// Enchainer méthodes
+return result.then((value) => expensiveWork())
+             .then((value) => lengthyComputation())
+             .then((value) => print('done!'))
+             // Gestion erreur
+             .catchError((exception) => print('DOH!'))
 </pre>
-            </section>
+             </section>
 
-            <section data-id="intro-param-2"
-                     data-background="lib/img/slide-devoxx-bg.png"
-                     data-background-size="6% 90%"
-                     data-background-transition="slide"
-                     data-background-position="0% 25%">
-                <h4>// TODO</h4>
+             <!-- Stream -->
+             <section data-id="intro-async-1"
+                      data-background="lib/img/slide-devoxx-bg.png"
+                      data-background-size="6% 90%"
+                      data-background-transition="slide"
+                      data-background-position="0% 25%">
+                 <h4>Stream</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>
+<em><span class="remark">lang-dart</span></em>// Trouver un bouton et ajouter un listener
+querySelector('#submitInfo').onClick.listen((e) {
+  // Quand le bouton est cliqué, ce code est exécuté
+  submitData();
+});
 </pre>
-            </section>
+             </section>
 
         </section>
-
-
     </div>
 
     <div id="footer">
