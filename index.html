@@ -46,6 +46,7 @@
     <div class="slides">
 
         <section data-id="cover"
+                 class="center"
                  data-background="lib/img/cover-bg.png"
                  data-background-transition="slide"
                  data-transition="linear">
@@ -58,7 +59,7 @@
                 data-background="lib/img/title-bg.png"
                 data-background-transition="slide"
                 data-transition="linear"
-                class="header">
+                class="header center">
             <div class="rotate45">
                 <div class="cyan">&nbsp;</div>
                 <div class="orange">&nbsp;</div>
@@ -66,23 +67,10 @@
                 <h2 class="text-white">Introduction au langage</h2>
             </div>
         </section>
-        <!--
-        <section data-id="dart"
-                 data-background="lib/img/title2-bg.png"
-                 data-background-transition="slide"
-                 data-transition="linear"
-                 class="header">
-            <div class="rotate45">
-                <div class="cyan">&nbsp;</div>
-                <div class="orange">&nbsp;</div>
-                <div class="white">&nbsp;</div>
-                <h2>Titre2</h2>
-            </div>
-        </section>
-        -->
 
         <!-- main -->
         <section>
+            <h3>1er pas</h3>
             <section data-id="intro-main-1"
                      data-background="lib/img/slide-devoxx-bg.png"
                      data-background-size="6% 90%"
@@ -119,7 +107,7 @@ String sayHello(String name) =>  "Hello $name"
         <!-- Parameters -->
 
         <section>
-
+            <h3>Paramètres</h3>
             <!-- Optional named parameters -->
             <section data-id="intro-param-1"
                      data-background="lib/img/slide-devoxx-bg.png"
@@ -165,6 +153,7 @@ say('Bob', 'Howdy', 'smoke signal');
 
         <!-- Classes -->
         <section>
+            <h3>Classes</h3>
             <!-- Fist class -->
             <section data-id="intro-class-1"
                              data-background="lib/img/slide-devoxx-bg.png"
@@ -278,7 +267,7 @@ class Musician extends Performer with Musical {
 
         <!-- Constructors -->
         <section>
-
+            <h3>Constructeurs</h3>
             <!-- Constructeurs nommés -->
             <section data-id="intro-constructor-1"
                      data-background="lib/img/slide-devoxx-bg.png"
@@ -336,12 +325,10 @@ Logger logger = new Logger("foo");
 
         </section>
 
-        </section>
-
         <!-- Collection -->
 
         <section>
-
+            <h3>Collections</h3>
             <!-- List -->
             <section data-id="intro-collection-1"
                      data-background="lib/img/slide-devoxx-bg.png"
@@ -353,11 +340,13 @@ Logger logger = new Logger("foo");
 <em><span class="remark">lang-dart</span></em>// Creation de listes
 var vegetables = [] // == new List();
 var fruits = ['apples', 'oranges'];
+
 // Ajout d'éléments
 fruits.add('kiwis');
 fruits.addAll(['grapes', 'bananas']);
 assert(fruits.length == 5);
 
+// Tri
 fruits.sort();
 assert(fruits[0] == 'apples');
 </pre>
@@ -417,13 +406,17 @@ var values = gifts.values;
                 <h4>Lamdba</h4>
             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
+
 // La camomille n'est pas caéfinée.
 bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+
 // Affichage en majuscule
 var loudTeas = teas.map((tea) => tea.toUpperCase());
 loudTeas.forEach(print);
+
 // Filtrage
 var decaffeinatedTeas = teas.where(isDecaffeinated);
+
 // Construction map
 var decaffeinatedTeasMap =
     new Map.fromIterable(teas, value: isDecaffeinated);
@@ -434,6 +427,7 @@ var decaffeinatedTeasMap =
 
          <!-- Async -->
          <section>
+            <h3>Asynchrone</h3>
 
              <!-- Future -->
              <section data-id="intro-async-1"
@@ -471,17 +465,30 @@ querySelector('#submitInfo').onClick.listen((e) {
              </section>
 
         </section>
+
+        <section data-id="dart"
+                 data-background="lib/img/title2-bg.png"
+                 data-background-transition="slide"
+                 data-transition="linear"
+                 class="header center">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2>Explication du codelab</h2>
+            </div>
+        </section>
+
     </div>
 
     <div id="footer">
-        <span id="hashtag">#dartlang</span>
+        <span id="hashtag">#dartlang #devoxxfr</span>
         <!--span id="twitter-author">@Author</span-->
     </div>
 </div>
 
-    <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
-    <script src="plugin/ace/ace.js"></script>
+
 
     <script>
 
@@ -491,37 +498,8 @@ querySelector('#submitInfo').onClick.listen((e) {
             controls: true,
             progress: true,
             history: true,
-            center: true,
-            keyboard: true,
-
-            //theme: 'devoxx2014',//Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-            minScale: 0.3,
-            maxScale: 1.0,
-
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: 'lib/js/classList.js', condition: function () {
-                    return !document.body.classList;
-                } },
-                { src: 'plugin/markdown/marked.js', condition: function () {
-                    return !!document.querySelector('[data-markdown]');
-                } },
-                { src: 'plugin/markdown/markdown.js', condition: function () {
-                    return !!document.querySelector('[data-markdown]');
-                } },
-
-                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
-                    return !!document.body.classList;
-                } },
-                { src: 'plugin/notes/notes.js', async: true, condition: function () {
-                    return !!document.body.classList;
-                } }
-            ]
-        });
-
-        Reveal.addEventListener('ready', function (event) {
+            center: false,
+            keyboard: true
         });
 
     </script>
