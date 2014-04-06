@@ -83,6 +83,10 @@
     print(hello);
 }
 </pre>
+<br>
+<pre class="fragment">
+Hello Devoxx France
+</pre>
             </section>
 
             <section data-id="intro-main-2"
@@ -156,34 +160,45 @@ say('Bob', 'Howdy', 'smoke signal');
             <h3>Classes</h3>
             <!-- Fist class -->
             <section data-id="intro-class-1"
-                             data-background="lib/img/slide-devoxx-bg.png"
-                             data-background-size="6% 90%"
-                             data-background-transition="slide"
-                             data-background-position="0% 25%">
-                        <h4>Classe</h4>
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Classe avec getter/setter</h4>
                             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>import 'dart:math';
 
 class Point {
     num _x, _y;
-    Point(this.x, this.y);
-    num distanceTo(Point other) {
-        var dx = x - other.x;
-        var dy = y - other.y;
-        return sqrt(dx * dx + dy * dy);
-    }
-    String toString() => "($x, $y)";
     num get x => _x;
     num set y => _y;
     set x(val) => _x = val;
     set y(val) => _y = val;
 }
 </pre>
+<br/>
 <pre class="programlisting fragment">
 <em><span class="remark">lang-dart</span></em>import 'dart:math';
 
+var p = new Point();
+p.x = 3;
+p.y = 2;
+var x = p.x;
+var y = p.y;
+</pre>
+            </section>
+            <!-- Fist class -->
+            <section data-id="intro-class-1"
+                             data-background="lib/img/slide-devoxx-bg.png"
+                             data-background-size="6% 90%"
+                             data-background-transition="slide"
+                             data-background-position="0% 25%">
+                        <h4>Classe complète</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>import 'dart:math';
+
 class Point {
-    num x, y;
+    final x, y;
     Point(this.x, this.y);
     num distanceTo(Point other) {
         var dx = x - other.x;
@@ -551,6 +566,120 @@ button.onClick.listen((e) => window.alert('Confirmed!'));
 
         </section>
 
+        <!-- Outils -->
+        <section>
+            <h3>Outils</h3>
+
+            <!-- Bibliothèques -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%"
+                     >
+                <h4>Bibliothèques</h4>
+                <br>
+                <table class="reveal">
+                    <thead>
+                        <tr>
+                            <th colspan=2>Interne</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="emph">dart:io</td>
+                        <td>Entrée/Sortie système</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">dart:math</td>
+                        <td>Calcul, génération aléatoire, ...</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">dart:convert</td>
+                        <td>Codec de convertion (JSon, ... )</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">dart:html</td>
+                        <td>Manipulation DOM</td>
+                    </tr>
+                </table>
+                <br>
+                <table class="reveal">
+                    <thead>
+                        <tr>
+                            <th colspan=2>Externe</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="emph">unittest</td>
+                        <td>Tests unitaires</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">http_server</td>
+                        <td>Serveur fichiers web</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">Polymer</td>
+                        <td>Web components</td>
+                    </tr>
+                </table>
+             </section>
+
+            <!-- Pub -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Pub</h4>
+                <h6><i>pubspec.yaml</i></h6>
+<pre class="programlisting"><em><span class="remark">lang-js
+</span></em>name: my_app
+dependencies:
+  polymer: ">=0.9.5 <0.10.0"
+dev_dependencies:
+  unittest: any
+transformers:
+- polymer:
+    entry_points: web/index.html
+</pre>
+<br/>
+<pre class="programlisting fragment"><em><span class="remark">lang-sh</span></em>pub get</pre>
+<pre class="programlisting fragment"><em><span class="remark">lang-sh</span></em>pub build</pre>
+            </section>
+
+            <!-- Test -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Test</h4>
+<pre class="programlisting"><em><span class="remark">lang-dart</span></em>import 'package:unittest/unittest.dart';
+
+main(){
+
+  test('Un test simple', () => expect(2+2, 4));
+
+  group('Test plus complexe', () {
+    setUp(() {/*...*/});
+    tearDown(() {/*...*/});
+    test('Test complexe 1', () {/*...*/});
+    test('Test complexe 2', () {/*...*/});
+  });
+}
+</pre>
+  <pre class="fragment">unittest-suite-wait-for-done
+PASS: Un test simple
+PASS: Test plus complexe Test complexe 1
+PASS: Test plus complexe Test complexe 2
+
+All 3 tests passed.
+unittest-suite-success
+ </pre>
+            </section>
+
+        </section>
+
         <section data-id="dart"
                  data-background="lib/img/title2-bg.png"
                  data-background-transition="slide"
@@ -563,6 +692,7 @@ button.onClick.listen((e) => window.alert('Confirmed!'));
                 <h2>Explication du codelab</h2>
             </div>
         </section>
+
 
     </div>
 
