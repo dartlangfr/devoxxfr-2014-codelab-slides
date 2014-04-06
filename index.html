@@ -166,9 +166,7 @@ say('Bob', 'Howdy', 'smoke signal');
                      data-background-position="0% 25%">
                 <h4>Classe avec getter/setter</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>import 'dart:math';
-
-class Point {
+<em><span class="remark">lang-dart</span></em>class Point {
     num _x, _y;
     num get x => _x;
     num set y => _y;
@@ -178,9 +176,7 @@ class Point {
 </pre>
 <br/>
 <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>import 'dart:math';
-
-var p = new Point();
+<em><span class="remark">lang-dart</span></em>var p = new Point();
 p.x = 3;
 p.y = 2;
 var x = p.x;
@@ -207,6 +203,11 @@ class Point {
     }
     String toString() => "($x, $y)";
 }
+
+var p = new Point(2, 3);
+print(p);// Affiche '(2, 3)'
+var x = p.x;
+var distance = p.distanceTo(new Point(5, 5));
 </pre>
                 </section>
 
@@ -277,13 +278,7 @@ abstract class Musical {
   bool canConduct = false;
 
   void entertainMe() {
-    if (canPlayPiano) {
-      print('Playing piano');
-    } else if (canConduct) {
-      print('Waving hands');
-    } else {
-      print('Humming to self');
-    }
+    //
   }
 }
 
@@ -521,21 +516,14 @@ querySelector('#submitInfo').onClick.listen((e) {
     _illuminateDisplay();
     _activateIrSensor();
   }
-
-  ...
 }
 
 class SmartTelevision extends Television {
-
   @override
   void turnOn() {
     super.turnOn();
     _bootNetworkInterface();
-    _initializeMemory();
-    _upgradeApps();
   }
-
-  ...
 }
 </pre>
             </section>
@@ -612,10 +600,6 @@ button.onClick.listen((e) => window.alert('Confirmed!'));
                     <tr>
                         <td class="emph">unittest</td>
                         <td>Tests unitaires</td>
-                    </tr>
-                    <tr>
-                        <td class="emph">http_server</td>
-                        <td>Serveur fichiers web</td>
                     </tr>
                     <tr>
                         <td class="emph">Polymer</td>
