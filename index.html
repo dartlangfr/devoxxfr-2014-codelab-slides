@@ -79,7 +79,7 @@
                 <h4>Hello world</h4>
                 <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>void main(){
-    var hello = "Hello Devoxx France"
+    var hello = "Hello Devoxx France";
     print(hello);
 }
 </pre>
@@ -165,14 +165,32 @@ say('Bob', 'Howdy', 'smoke signal');
 <em><span class="remark">lang-dart</span></em>import 'dart:math';
 
 class Point {
-    final num x, y;
+    num _x, _y;
     Point(this.x, this.y);
     num distanceTo(Point other) {
         var dx = x - other.x;
         var dy = y - other.y;
         return sqrt(dx * dx + dy * dy);
     }
-    String toString() => "($x, $y)"
+    String toString() => "($x, $y)";
+    num get x => _x;
+    num set y => _y;
+    set x(val) => _x = val;
+    set y(val) => _y = val;
+}
+</pre>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>import 'dart:math';
+
+class Point {
+    num x, y;
+    Point(this.x, this.y);
+    num distanceTo(Point other) {
+        var dx = x - other.x;
+        var dy = y - other.y;
+        return sqrt(dx * dx + dy * dy);
+    }
+    String toString() => "($x, $y)";
 }
 </pre>
                 </section>
@@ -427,7 +445,7 @@ var decaffeinatedTeasMap =
 
          <!-- Async -->
          <section>
-            <h3>Asynchrone</h3>
+            <h3>Asynchronisme</h3>
 
              <!-- Future -->
              <section data-id="intro-async-1"
@@ -463,6 +481,73 @@ querySelector('#submitInfo').onClick.listen((e) {
 });
 </pre>
              </section>
+
+        </section>
+
+        <!-- Divers -->
+        <section>
+            <h3>Divers</h3>
+            <!-- Stream -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Metadata</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>class Television {
+  /// _Deprecated: Utiliser [turnOn]._
+  @deprecated
+  void activate() {
+    turnOn();
+  }
+
+  void turnOn() {
+    _illuminateDisplay();
+    _activateIrSensor();
+  }
+
+  ...
+}
+
+class SmartTelevision extends Television {
+
+  @override
+  void turnOn() {
+    super.turnOn();
+    _bootNetworkInterface();
+    _initializeMemory();
+    _upgradeApps();
+  }
+
+  ...
+}
+</pre>
+            </section>
+
+            <!-- Cascade -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Cascade</h4>
+
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>var button = querySelector('#button');
+button.text = 'Click to Confirm';
+button.classes.add('important');
+button.onClick.listen((e) => window.alert('Confirmed!'));
+</pre>
+            <br/>
+            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>querySelector('#button')
+            ..text = 'Click to Confirm'
+            ..classes.add('important')
+            ..onClick.listen((e) => window.alert('Confirmed!'));
+</pre>
+
+            </section>
 
         </section>
 
