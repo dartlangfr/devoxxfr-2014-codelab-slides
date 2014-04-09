@@ -103,6 +103,10 @@ Hello Devoxx France
 
 String sayHello(String name) =>  "Hello $name"
 </pre>
+<br>
+<pre class="fragment">
+Hello Devoxx France
+</pre>
             </section>
 
 
@@ -166,21 +170,17 @@ say('Bob', 'Howdy', 'smoke signal');
                      data-background-position="0% 25%">
                 <h4>Classe avec getter/setter</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>class Point {
-    num _x, _y;
-    num get x => _x;
-    num set y => _y;
-    set x(val) => _x = val;
-    set y(val) => _y = val;
+<em><span class="remark">lang-dart</span></em>class Person {
+    String _name;
+    Sting get name => _name;
+    set name(val) => _name = val;
 }
 </pre>
 <br/>
 <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>var p = new Point();
-p.x = 3;
-p.y = 2;
-var x = p.x;
-var y = p.y;
+<em><span class="remark">lang-dart</span></em>var p = new Person();
+p.name = "John"; // Set
+var name = p.name; // Get
 </pre>
             </section>
             <!-- Fist class -->
@@ -331,23 +331,18 @@ Point p2 = new Point.polar(0, 1);
                 <h4>Factory</h4>
                             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>class Logger {
-  final String name;
-  bool mute = false;
+      final String name;
+      bool mute = false;
 
-  static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
+      static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
 
-  factory Logger(String name) {
-    if (_cache.containsKey(name)) {
-      return _cache[name];
-    } else {
-      final logger = new Logger._internal(name);
-      _cache[name] = logger;
-      return logger;
+      factory Logger(String name) => _cache.putIfAbsent(name, () =>
+          new Logger._internal(name));
+
+      Logger._internal(this.name);
     }
-  }
-}
 
-Logger logger = new Logger("foo");
+    Logger logger = new Logger("foo");
 </pre>
             </section>
 
@@ -380,26 +375,6 @@ assert(fruits[0] == 'apples');
 </pre>
             </section>
 
-            <!-- Set -->
-            <section data-id="intro-collection-2"
-                     data-background="lib/img/slide-devoxx-bg.png"
-                     data-background-size="6% 90%"
-                     data-background-transition="slide"
-                     data-background-position="0% 25%">
-                <h4>Set</h4>
-            <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Création
-var ingredients = new Set();
-ingredients.addAll(['gold', 'titanium', 'xenon']);
-
-// Intersection
-var nobleGases = new Set.from(['xenon', 'argon']);
-var intersection = ingredients.intersection(nobleGases);
-assert(intersection.length == 1);
-assert(intersection.contains('xenon'));
-</pre>
-            </section>
-
             <!-- Map -->
             <section data-id="intro-collection-3"
                      data-background="lib/img/slide-devoxx-bg.png"
@@ -422,6 +397,26 @@ assert(gifts.length == 4);
 
 var keys = gifts.keys;
 var values = gifts.values;
+</pre>
+            </section>
+
+            <!-- Set -->
+            <section data-id="intro-collection-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Set</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>// Création
+var ingredients = new Set();
+ingredients.addAll(['gold', 'titanium', 'xenon']);
+
+// Intersection
+var nobleGases = new Set.from(['xenon', 'argon']);
+var intersection = ingredients.intersection(nobleGases);
+assert(intersection.length == 1);
+assert(intersection.contains('xenon'));
 </pre>
             </section>
 
