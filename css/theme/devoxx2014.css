@@ -279,8 +279,9 @@ body {
   }
   .reveal section[data-id="cover"] .orange {
     background-color: #f5af33;
+    font-size: 0.8em;
     width: 75%;
-    height: 1em; }
+    height: 1.3em; }
   .reveal section[data-id="cover"] h2 {
     background-color: #53b6bc;
     width: 50%;

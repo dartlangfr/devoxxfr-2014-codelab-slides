@@ -52,7 +52,7 @@
                  data-transition="linear">
             <h1>The Dart side of disruption</h1>
 
-            <div class="orange">&nbsp;</div>
+            <div class="orange">@a14n @GirouGuillaume @MatBreton @NicoFrancois</div>
         </section>
 
         <section
@@ -168,11 +168,28 @@ say('Bob', 'Howdy', 'smoke signal');
                      data-background-size="6% 90%"
                      data-background-transition="slide"
                      data-background-position="0% 25%">
+                <h4>Ma 1ère classe</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em>class MaSuperClasse {
+
+}
+</pre>
+                <br/>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>var classe = new MaSuperClasse();
+</pre>
+            </section>
+            <!-- Fist class -->
+            <section data-id="intro-class-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
                 <h4>Classe avec getter/setter</h4>
                             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>class Person {
     String _name;
-    Sting get name => _name;
+    String get name => _name;
     set name(val) => _name = val;
 }
 </pre>
@@ -203,8 +220,9 @@ class Point {
     }
     String toString() => "($x, $y)";
 }
-
-var p = new Point(2, 3);
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>var p = new Point(2, 3);
 print(p);// Affiche '(2, 3)'
 var x = p.x;
 var distance = p.distanceTo(new Point(5, 5));
@@ -224,7 +242,9 @@ var distance = p.distanceTo(new Point(5, 5));
     print('in Person');
   }
 }
-
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>
 class Employee extends Person {
   // Person n'a pas de constructeur par défaut
   // Il faut appeler super.fromJson(data).
@@ -252,8 +272,9 @@ class Person {
   // Méthode de l'interface
   String greet(who) => 'Hello, $who. I am $_name.';
 }
-
-// Une implémentation de Person.
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// Une implémentation de Person.
 class Imposter implements Person {
   // On le définit mais on ne l'utilise pas
   final _name = "";
@@ -281,8 +302,9 @@ abstract class Musical {
     //
   }
 }
-
-class Musician extends Performer with Musical {
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>class Musician extends Performer with Musical {
   Musician(String musicianName) {
     name = musicianName;
     canConduct = true;
@@ -315,8 +337,9 @@ class Point {
     y = sin(theta) * radius;
   }
 }
-
-Point p1 = new Point.zero();
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>Point p1 = new Point.zero();
 Point p2 = new Point.polar(0, 1);
 </pre>
             </section>
@@ -342,7 +365,9 @@ Point p2 = new Point.polar(0, 1);
       Logger._internal(this.name);
     }
 
-    Logger logger = new Logger("foo");
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>Logger logger = new Logger("foo");
 </pre>
             </section>
 
@@ -363,13 +388,15 @@ Point p2 = new Point.polar(0, 1);
 <em><span class="remark">lang-dart</span></em>// Creation de listes
 var vegetables = [] // == new List();
 var fruits = ['apples', 'oranges'];
-
-// Ajout d'éléments
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// Ajout d'éléments
 fruits.add('kiwis');
 fruits.addAll(['grapes', 'bananas']);
 assert(fruits.length == 5);
-
-// Tri
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// Tri
 fruits.sort();
 assert(fruits[0] == 'apples');
 </pre>
@@ -389,13 +416,16 @@ assert(fruits[0] == 'apples');
   'second' : 'turtledoves',
   'fifth'  : 'golden rings'
 };
-
-gifts['fourth'] = 'calling birds';    // Add a key-value pair
-
-assert(gifts['first'] == 'partridge')
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>gifts['fourth'] = 'calling birds';    // Add a key-value pair
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>assert(gifts['first'] == 'partridge')
 assert(gifts.length == 4);
-
-var keys = gifts.keys;
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>var keys = gifts.keys;
 var values = gifts.values;
 </pre>
             </section>
@@ -411,8 +441,9 @@ var values = gifts.values;
 <em><span class="remark">lang-dart</span></em>// Création
 var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
-
-// Intersection
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// Intersection
 var nobleGases = new Set.from(['xenon', 'argon']);
 var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
@@ -429,18 +460,22 @@ assert(intersection.contains('xenon'));
                 <h4>Lamdba</h4>
             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
-
-// La camomille n'est pas caéfinée.
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// La camomille n'est pas caéfinée.
 bool isDecaffeinated(String teaName) => teaName == 'chamomile';
-
-// Affichage en majuscule
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// Affichage en majuscule
 var loudTeas = teas.map((tea) => tea.toUpperCase());
 loudTeas.forEach(print);
-
-// Filtrage
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// Filtrage
 var decaffeinatedTeas = teas.where(isDecaffeinated);
-
-// Construction map
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>// Construction map
 var decaffeinatedTeasMap =
     new Map.fromIterable(teas, value: isDecaffeinated);
 </pre>
@@ -512,8 +547,9 @@ querySelector('#submitInfo').onClick.listen((e) {
     _activateIrSensor();
   }
 }
-
-class SmartTelevision extends Television {
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>class SmartTelevision extends Television {
   @override
   void turnOn() {
     super.turnOn();
@@ -675,6 +711,8 @@ unittest-suite-success
 
         </section>
 
+        <!-- Explication codelab -->
+
         <section data-id="explication-codelab"
                  data-background="lib/img/title2-bg.png"
                  data-background-transition="slide"
@@ -688,10 +726,44 @@ unittest-suite-success
             </div>
         </section>
 
+        <section>
+            <h3>Déroulement</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+           </section>
+
+        </section>
+
+        <section>
+            <h3>Régles</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+            </section>
+
+
+        </section>
+
+        <section>
+            <h3>Démo</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+            </section>
+
+
+        </section>
+
         <!-- Serveur -->
 
-        <section data-id="explication-codelab"
-                 data-background="lib/img/louvre.jpg"
+        <section data-background="lib/img/louvre.jpg"
                  data-background-transition="slide"
                  data-transition="linear"
                  class="header center">
@@ -798,8 +870,188 @@ vDir.serveRequest(request);
             </div>
         </section>
 
+        <section>
+
+            <h3>Architecture</h3>
+
+            <!-- Polyfills -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Organisation projet</h4>
+
+                <img src="lib/img/polymer-architecture.jpg">
+            </section>
+
+            <!-- Polyfills
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                    <h4>Polyfills</h4>
+
+                    <img src="lib/img/polymer-architecture.jpg">
+            </section>
 
 
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                    <h4>Web component</h4>
+            </section>
+            -->
+
+        </section>
+
+        <section>
+            <h3>Fondation</h3>
+
+            <!-- HTML Template -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>HTML Template</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;template id="monSuperTemplate"&gt;
+  &lt;div class="super-style" &gt;
+  &lt;/div&gt;
+  &lt!-- Plein de html --&gt;
+&lt;/template&gt;
+</pre>
+<br>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;template if="{{maCondition}}"&gt;
+</pre>
+<br>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;template repeat="{{maList}}"&gt;
+</pre>
+            </section>
+
+            <!-- Shadow DOM -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Shadow DOM</h4>
+ <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;video controls src="/ma/super/video"&gt;&lt;/video&gt;
+</pre>
+                <br>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;video controls="" height="300" src="/ma/super/video"&gt;
+  <em>#shadow-root</em>
+  &lt;div&gt;
+    &lt;div&gt;
+      &lt;div&gt;
+        &lt;input type="button"&gt;
+        &lt;input type="range" precision="float" max="596.48"&gt;
+        &lt;div style="display: none;"&gt;0:00&lt;/div&gt;&lt;div&gt;9:56&lt;/div&gt;
+          &lt;input type="button"&gt;
+          &lt;input type="range" precision="float" max="1" style=""&gt;
+          &lt;input type="button" style="display: none;"&gt;
+          &lt;input type="button" style=""&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/video&gt;
+</pre>
+            </section>
+
+            <!-- Custom Element -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Custom Elements</h4>
+ <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;x-click-counter&gt;&lt;/x-click-counter&gt;
+</pre>
+<br>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;element name="x-click-counter"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+        /* Css */
+    &lt;/style&gt;
+    &lt;-- Html --&gt;
+  &lt;/template&gt;
+  &lt;-- Code Dart --&gt;
+  &lt;script src="click_counter.dart"&gt;&lt;/script&gt;
+&lt;/element&gt;
+</pre>
+            </section>
+
+            <!-- HTML Import -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>HTML Import</h4>
+<pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;head&gt;
+    &lt;!-- Plein de déclaration --&gt;
+    &lt;link rel="import" href="/components/click_counter.html"&gt;
+&lt;/head&gt;
+</pre>
+            </section>
+
+            <!-- Observer -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Observer</h4>
+
+                <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;div&gt;
+  {{name}}
+&lt;/div&gt;
+</pre>
+                <br>
+                <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em>@observable String name;
+</pre>
+            </section>
+
+        </section>
+
+       <section>
+           <h3>Divers</h3>
+           <!-- HttpRequest -->
+           <section
+                   data-background="lib/img/slide-devoxx-bg.png"
+                   data-background-size="6% 90%"
+                   data-background-transition="slide"
+                   data-background-position="0% 25%">
+               <h4>HttpRequest</h4>
+           </section>
+
+           <!-- SVG -->
+           <section
+                   data-background="lib/img/slide-devoxx-bg.png"
+                   data-background-size="6% 90%"
+                   data-background-transition="slide"
+                   data-background-position="0% 25%">
+               <h4>SVG</h4>
+           </section>
+
+       </section>
+
+
+        <!-- TODO question -->
+        <!-- TODO Resources -->
 
 
     </div>
