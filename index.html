@@ -622,7 +622,7 @@ button.onClick.listen((e) => window.alert('Confirmed!'));
                     </tr>
                 </table>
                 <br>
-                <table class="reveal">
+                <table class="reveal fragment">
                     <thead>
                         <tr>
                             <th colspan=2>Externe</th>
@@ -645,8 +645,7 @@ button.onClick.listen((e) => window.alert('Confirmed!'));
                      data-background-size="6% 90%"
                      data-background-transition="slide"
                      data-background-position="0% 25%">
-                <h4>Import</h4>
-Déclaration librairies/Import
+                <h4>Déclaration librairies/Import</h4>
 <pre class="programlisting"><em><span class="remark"></span></em>library bestWebApp;
 
 import 'dart:html';
@@ -792,8 +791,8 @@ unittest-suite-success
 main() {
   HttpServer.bind('127.0.0.1', 8080).then((server) {
     server.listen((HttpRequest request) {
-      request.response.write('Hello, world');
-      request.response.close();
+      request.response..write('Hello, world')
+                      ..close();
     });
   });
 }
