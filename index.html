@@ -78,10 +78,10 @@
                      data-background-position="0% 25%">
                 <h4>Hello world</h4>
                 <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>void main(){
-    var hello = "Hello Devoxx France";
-    print(hello);
-}
+<em><span class="remark">lang-dart</span></em> void main(){
+     var hello = "Hello Devoxx France";
+     print(hello);
+ }
 </pre>
 <br>
 <pre class="fragment">
@@ -96,12 +96,12 @@ Hello Devoxx France
                      data-background-position="0% 25%">
                 <h4>Fonction top level</h4>
                 <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>void main(){
-    var who = "Devoxx France";
-    print(sayHello(who));
-}
+<em><span class="remark">lang-dart</span></em> void main(){
+     var who = "Devoxx France";
+     print(sayHello(who));
+ }
 
-String sayHello(String name) =>  "Hello $name"
+ String sayHello(String name) =>  "Hello $name"
 </pre>
 <br>
 <pre class="fragment">
@@ -124,12 +124,13 @@ Hello Devoxx France
                      data-background-position="0% 25%">
                 <h4>Paramètres optionnels nommés</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Affecte les flags bold et hidden à leur valeurs.
-enableFlags({bool bold, bool hidden}) {
-  // ...
-}
-
-enableFlags(bold: true, hidden: false);
+<em><span class="remark">lang-dart</span></em> // Affecte les flags bold et hidden à leur valeurs.
+ enableFlags({bool bold, bool hidden}) {
+   // ...
+ }
+</pre>
+ <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> enableFlags(bold: true, hidden: false);
 </pre>
             </section>
 
@@ -142,18 +143,19 @@ enableFlags(bold: true, hidden: false);
                      data-background-position="0% 25%">
                 <h4>Paramètres optionnels positionnés</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>String say(String from, String msg, [String device]) {
-  var result = '$from says $msg';
-  if (device != null) {
-    result = '$result with a $device';
-  }
-  return result;
-}
+<em><span class="remark">lang-dart</span></em> String say(String from, String msg, [String device]) {
+   var result = '$from says $msg';
+   if (device != null) {
+     result = '$result with a $device';
+   }
+   return result;
+ }
 
-say('Bob', 'Howdy');
-// 'Bob says Howdy'
-say('Bob', 'Howdy', 'smoke signal');
-// 'Bob says Howdy with a smoke signal'
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> say('Bob', 'Howdy');
+ // 'Bob says Howdy'
+ say('Bob', 'Howdy', 'smoke signal');
+ // 'Bob says Howdy with a smoke signal'
 </pre>
             </section>
 
@@ -170,13 +172,13 @@ say('Bob', 'Howdy', 'smoke signal');
                      data-background-position="0% 25%">
                 <h4>Ma 1ère classe</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>class MaSuperClasse {
+<em><span class="remark">lang-dart</span></em> class MaClasse {
 
-}
+ }
 </pre>
                 <br/>
 <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>var classe = new MaSuperClasse();
+<em><span class="remark">lang-dart</span></em> var classe = new MaSuperClasse();
 </pre>
             </section>
             <!-- Fist class -->
@@ -187,17 +189,17 @@ say('Bob', 'Howdy', 'smoke signal');
                      data-background-position="0% 25%">
                 <h4>Classe avec getter/setter</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>class Person {
-    String _name;
-    String get name => _name;
-    set name(val) => _name = val;
-}
+<em><span class="remark">lang-dart</span></em> class Person {
+   String _name;
+   String get name => _name;
+   set name(val) => _name = val;
+ }
 </pre>
 <br/>
 <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>var p = new Person();
-p.name = "John"; // Set
-var name = p.name; // Get
+<em><span class="remark">lang-dart</span></em> var p = new Person();
+ p.name = "John"; // Set
+ var name = p.name; // Get
 </pre>
             </section>
             <!-- Fist class -->
@@ -208,24 +210,24 @@ var name = p.name; // Get
                              data-background-position="0% 25%">
                         <h4>Classe complète</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>import 'dart:math';
+<em><span class="remark">lang-dart</span></em> import 'dart:math';
 
-class Point {
-    final x, y;
-    Point(this.x, this.y);
-    num distanceTo(Point other) {
-        var dx = x - other.x;
-        var dy = y - other.y;
-        return sqrt(dx * dx + dy * dy);
-    }
-    String toString() => "($x, $y)";
-}
+ class Point {
+   final x, y;
+   Point(this.x, this.y);
+   num distanceTo(Point other) {
+     var dx = x - other.x;
+     var dy = y - other.y;
+     return sqrt(dx * dx + dy * dy);
+   }
+   String toString() => "($x, $y)";
+ }
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>var p = new Point(2, 3);
-print(p);// Affiche '(2, 3)'
-var x = p.x;
-var distance = p.distanceTo(new Point(5, 5));
+<em><span class="remark">lang-dart</span></em> var p = new Point(2, 3);
+ print(p);// Affiche '(2, 3)'
+ var x = p.x;
+ var distance = p.distanceTo(new Point(5, 5));
 </pre>
                 </section>
 
@@ -237,21 +239,20 @@ var distance = p.distanceTo(new Point(5, 5));
                      data-background-position="0% 25%">
                 <h4>Héritage</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>class Person {
-  Person.fromJson(Map data) {
-    print('in Person');
-  }
-}
+<em><span class="remark">lang-dart</span></em> class Person {
+   Person.fromJson(Map data) {
+     print('in Person');
+   }
+ }
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>
-class Employee extends Person {
-  // Person n'a pas de constructeur par défaut
-  // Il faut appeler super.fromJson(data).
-  Employee.fromJson(Map data) : super.fromJson(data) {
-    print('in Employee');
-  }
-}
+<em><span class="remark">lang-dart</span></em> class Employee extends Person {
+   // Person n'a pas de constructeur par défaut
+   // Il faut appeler super.fromJson(data).
+   Employee.fromJson(Map data) : super.fromJson(data) {
+     print('in Employee');
+   }
+ }
 </pre>
             </section>
 
@@ -263,23 +264,23 @@ class Employee extends Person {
                      data-background-position="0% 25%">
                 <h4>Implémentation</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Person est une interface implicite contient greet().
-class Person {
-  // Dans l'interface mais visible dans la bibliothèque
-  final _name;
-  // Pas dans l'interface car c'est une constructeur
-  Person(this._name);
-  // Méthode de l'interface
-  String greet(who) => 'Hello, $who. I am $_name.';
-}
+<em><span class="remark">lang-dart</span></em> // Person est une interface implicite contient greet().
+ class Person {
+   // Dans l'interface mais visible dans la bibliothèque
+   final _name;
+   // Pas dans l'interface car c'est une constructeur
+   Person(this._name);
+   // Méthode de l'interface
+   String greet(who) => 'Hello, $who. I am $_name.';
+ }
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// Une implémentation de Person.
-class Imposter implements Person {
-  // On le définit mais on ne l'utilise pas
-  final _name = "";
-  String greet(who) => 'Hi $who. Do you know who I am?';
-}
+<em><span class="remark">lang-dart</span></em> // Une implémentation de Person.
+ class Imposter implements Person {
+   // On le définit mais on ne l'utilise pas
+   final _name = "";
+   String greet(who) => 'Hi $who. Do you know who I am?';
+ }
 </pre>
             </section>
 
@@ -291,25 +292,25 @@ class Imposter implements Person {
                      data-background-position="0% 25%">
                 <h4>Mixin</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Un mixin doit
-// étendre Object, ne pas avoir de constructeur, pas d'appel à super
-abstract class Musical {
-  bool canPlayPiano = false;
-  bool canCompose = false;
-  bool canConduct = false;
+<em><span class="remark">lang-dart</span></em> // Un mixin doit
+ // étendre Object, ne pas avoir de constructeur, pas d'appel à super
+ abstract class Musical {
+   bool canPlayPiano = false;
+   bool canCompose = false;
+   bool canConduct = false;
 
-  void entertainMe() {
-    //
-  }
-}
+   void entertainMe() {
+     //
+   }
+ }
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>class Musician extends Performer with Musical {
-  Musician(String musicianName) {
-    name = musicianName;
-    canConduct = true;
-  }
-}
+<em><span class="remark">lang-dart</span></em> class Musician extends Performer with Musical {
+   Musician(String musicianName) {
+     name = musicianName;
+     canConduct = true;
+   }
+ }
 </pre>
             </section>
 
@@ -326,21 +327,21 @@ abstract class Musical {
                      data-background-position="0% 25%">
                 <h4>Constructeur nommé</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>import 'dart:math';
+<em><span class="remark">lang-dart</span></em> import 'dart:math';
 
-class Point {
-  num x, y;
-  Point(this.x, this.y);
-  Point.zero() : x = 0, y = 0;
-  Point.polar(num theta, num radius) {
-    x = cos(theta) * radius;
-    y = sin(theta) * radius;
-  }
-}
+ class Point {
+   num x, y;
+   Point(this.x, this.y);
+   Point.zero() : x = 0, y = 0;
+   Point.polar(num theta, num radius) {
+     x = cos(theta) * radius;
+     y = sin(theta) * radius;
+   }
+ }
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>Point p1 = new Point.zero();
-Point p2 = new Point.polar(0, 1);
+<em><span class="remark">lang-dart</span></em> Point p1 = new Point.zero();
+ Point p2 = new Point.polar(0, 1);
 </pre>
             </section>
 
@@ -353,21 +354,21 @@ Point p2 = new Point.polar(0, 1);
                      data-background-position="0% 25%">
                 <h4>Factory</h4>
                             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>class Logger {
-      final String name;
-      bool mute = false;
+<em><span class="remark">lang-dart</span></em> class Logger {
+   final String name;
+     bool mute = false;
 
-      static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
+     static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
 
-      factory Logger(String name) => _cache.putIfAbsent(name, () =>
+     factory Logger(String name) => _cache.putIfAbsent(name, () =>
           new Logger._internal(name));
 
-      Logger._internal(this.name);
-    }
+     Logger._internal(this.name);
+   }
 
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>Logger logger = new Logger("foo");
+<em><span class="remark">lang-dart</span></em> Logger logger = new Logger("foo");
 </pre>
             </section>
 
@@ -385,20 +386,20 @@ Point p2 = new Point.polar(0, 1);
                      data-background-position="0% 25%">
                 <h4>List</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Creation de listes
-var vegetables = [] // == new List();
-var fruits = ['apples', 'oranges'];
+<em><span class="remark">lang-dart</span></em> // Creation de listes
+ var vegetables = [] // == new List();
+ var fruits = ['apples', 'oranges'];
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// Ajout d'éléments
-fruits.add('kiwis');
-fruits.addAll(['grapes', 'bananas']);
-assert(fruits.length == 5);
+<em><span class="remark">lang-dart</span></em> // Ajout d'éléments
+ fruits.add('kiwis');
+ fruits.addAll(['grapes', 'bananas']);
+ assert(fruits.length == 5);
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// Tri
-fruits.sort();
-assert(fruits[0] == 'apples');
+<em><span class="remark">lang-dart</span></em> // Tri
+ fruits.sort();
+ assert(fruits[0] == 'apples');
 </pre>
             </section>
 
@@ -410,23 +411,23 @@ assert(fruits[0] == 'apples');
                      data-background-position="0% 25%">
                 <h4>Map</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>var gifts = {
-  // Keys       Values
-  'first'  : 'partridge',
-  'second' : 'turtledoves',
-  'fifth'  : 'golden rings'
-};
+<em><span class="remark">lang-dart</span></em> var gifts = {
+   // Keys       Values
+   'first'  : 'partridge',
+   'second' : 'turtledoves',
+   'fifth'  : 'golden rings'
+ };
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>gifts['fourth'] = 'calling birds';    // Add a key-value pair
+<em><span class="remark">lang-dart</span></em> gifts['fourth'] = 'calling birds';    // Add a key-value pair
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>assert(gifts['first'] == 'partridge')
-assert(gifts.length == 4);
+<em><span class="remark">lang-dart</span></em> assert(gifts['first'] == 'partridge')
+ assert(gifts.length == 4);
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>var keys = gifts.keys;
-var values = gifts.values;
+<em><span class="remark">lang-dart</span></em> var keys = gifts.keys;
+ var values = gifts.values;
 </pre>
             </section>
 
@@ -438,16 +439,16 @@ var values = gifts.values;
                      data-background-position="0% 25%">
                 <h4>Set</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Création
-var ingredients = new Set();
-ingredients.addAll(['gold', 'titanium', 'xenon']);
+<em><span class="remark">lang-dart</span></em> // Création
+ var ingredients = new Set();
+ ingredients.addAll(['gold', 'titanium', 'xenon']);
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// Intersection
-var nobleGases = new Set.from(['xenon', 'argon']);
-var intersection = ingredients.intersection(nobleGases);
-assert(intersection.length == 1);
-assert(intersection.contains('xenon'));
+<em><span class="remark">lang-dart</span></em> // Intersection
+ var nobleGases = new Set.from(['xenon', 'argon']);
+ var intersection = ingredients.intersection(nobleGases);
+ assert(intersection.length == 1);
+ assert(intersection.contains('xenon'));
 </pre>
             </section>
 
@@ -459,24 +460,24 @@ assert(intersection.contains('xenon'));
                      data-background-position="0% 25%">
                 <h4>Lamdba</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
+<em><span class="remark">lang-dart</span></em> var teas = ['green', 'black', 'chamomile', 'earl grey'];
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// La camomille n'est pas caéfinée.
-bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+<em><span class="remark">lang-dart</span></em> // La camomille n'est pas caéfinée.
+ bool isDecaffeinated(String teaName) => teaName == 'chamomile';
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// Affichage en majuscule
-var loudTeas = teas.map((tea) => tea.toUpperCase());
-loudTeas.forEach(print);
+<em><span class="remark">lang-dart</span></em> // Affichage en majuscule
+ var loudTeas = teas.map((tea) => tea.toUpperCase());
+ loudTeas.forEach(print);
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// Filtrage
-var decaffeinatedTeas = teas.where(isDecaffeinated);
+<em><span class="remark">lang-dart</span></em> // Filtrage
+ var decaffeinatedTeas = teas.where(isDecaffeinated);
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>// Construction map
-var decaffeinatedTeasMap =
+<em><span class="remark">lang-dart</span></em> // Construction map
+ var decaffeinatedTeasMap =
     new Map.fromIterable(teas, value: isDecaffeinated);
 </pre>
         </section>
@@ -495,14 +496,14 @@ var decaffeinatedTeasMap =
                       data-background-position="0% 25%">
                  <h4>Future</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>Future result = costlyQuery();
+<em><span class="remark">lang-dart</span></em> Future result = costlyQuery();
 
-// Enchainer méthodes
-return result.then((value) => expensiveWork())
-             .then((value) => lengthyComputation())
-             .then((value) => print('done!'))
-             // Gestion erreur
-             .catchError((exception) => print('DOH!'))
+ // Enchainer méthodes
+ return result.then((value) => expensiveWork())
+              .then((value) => lengthyComputation())
+              .then((value) => print('done!'))
+              // Gestion erreur
+              .catchError((exception) => print('DOH!'))
 </pre>
              </section>
 
@@ -514,11 +515,11 @@ return result.then((value) => expensiveWork())
                       data-background-position="0% 25%">
                  <h4>Stream</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Trouver un bouton et ajouter un listener
-querySelector('#submitInfo').onClick.listen((e) {
-  // Quand le bouton est cliqué, ce code est exécuté
-  submitData();
-});
+<em><span class="remark">lang-dart</span></em> // Trouver un bouton et ajouter un listener
+ querySelector('#submitInfo').onClick.listen((e) {
+   // Quand le bouton est cliqué, ce code est exécuté
+   submitData();
+ });
 </pre>
              </section>
 
@@ -535,27 +536,27 @@ querySelector('#submitInfo').onClick.listen((e) {
                      data-background-position="0% 25%">
                 <h4>Metadata</h4>
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>class Television {
-  /// _Deprecated: Utiliser [turnOn]._
-  @deprecated
-  void activate() {
-    turnOn();
-  }
+<em><span class="remark">lang-dart</span></em> class Television {
+   /// _Deprecated: Utiliser [turnOn]._
+   @deprecated
+   void activate() {
+     turnOn();
+   }
 
-  void turnOn() {
-    _illuminateDisplay();
-    _activateIrSensor();
-  }
-}
+   void turnOn() {
+     _illuminateDisplay();
+     _activateIrSensor();
+   }
+ }
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>class SmartTelevision extends Television {
-  @override
-  void turnOn() {
-    super.turnOn();
-    _bootNetworkInterface();
-  }
-}
+<em><span class="remark">lang-dart</span></em> class SmartTelevision extends Television {
+   @override
+   void turnOn() {
+     super.turnOn();
+     _bootNetworkInterface();
+   }
+ }
 </pre>
             </section>
 
@@ -568,17 +569,17 @@ querySelector('#submitInfo').onClick.listen((e) {
                 <h4>Cascade</h4>
 
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>var button = querySelector('#button');
-button.text = 'Click to Confirm';
-button.classes.add('important');
-button.onClick.listen((e) => window.alert('Confirmed!'));
+<em><span class="remark">lang-dart</span></em> var button = querySelector('#button');
+ button.text = 'Click to Confirm';
+ button.classes.add('important');
+ button.onClick.listen((e) => window.alert('Confirmed!'));
 </pre>
             <br/>
             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>querySelector('#button')
-            ..text = 'Click to Confirm'
-            ..classes.add('important')
-            ..onClick.listen((e) => window.alert('Confirmed!'));
+<em><span class="remark">lang-dart</span></em> querySelector('#button')
+             ..text = 'Click to Confirm'
+             ..classes.add('important')
+             ..onClick.listen((e) => window.alert('Confirmed!'));
 </pre>
 
             </section>
@@ -646,10 +647,17 @@ button.onClick.listen((e) => window.alert('Confirmed!'));
                      data-background-transition="slide"
                      data-background-position="0% 25%">
                 <h4>Déclaration librairies/Import</h4>
-<pre class="programlisting"><em><span class="remark"></span></em>library bestWebApp;
+<pre class="programlisting"><em><span class="remark"></span></em> library bestWebApp;
 
-import 'dart:html';
-import 'package:polymer/polymer.dart';
+ part 'src/crazyImpl.dart';
+ part 'src/wonderfullUI.dart';
+
+ import 'dart:html';
+ import 'package:polymer/polymer.dart';
+
+</pre>
+ <pre class="programlisting fragment"><em><span class="remark"></span></em> // crazyImpl.dart
+ part of bestWebApp;
 
 </pre>
             </section>
@@ -684,19 +692,19 @@ transformers:
                      data-background-transition="slide"
                      data-background-position="0% 25%">
                 <h4>Test</h4>
-<pre class="programlisting"><em><span class="remark">lang-dart</span></em>import 'package:unittest/unittest.dart';
+<pre class="programlisting"><em><span class="remark">lang-dart</span></em> import 'package:unittest/unittest.dart';
 
-main(){
+ main(){
 
-  test('Un test simple', () => expect(2+2, 4));
+   test('Un test simple', () => expect(2+2, 4));
 
-  group('Test plus complexe', () {
-    setUp(() {/*...*/});
-    tearDown(() {/*...*/});
-    test('Test complexe 1', () {/*...*/});
-    test('Test complexe 2', () {/*...*/});
-  });
-}
+   group('Test plus complexe', () {
+     setUp(() {/*...*/});
+     tearDown(() {/*...*/});
+     test('Test complexe 1', () {/*...*/});
+     test('Test complexe 2', () {/*...*/});
+   });
+ }
 </pre>
   <pre class="fragment">unittest-suite-wait-for-done
 PASS: Un test simple
@@ -786,16 +794,16 @@ unittest-suite-success
 
 
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>import 'dart:io';
+<em><span class="remark">lang-dart</span></em> import 'dart:io';
 
-main() {
-  HttpServer.bind('127.0.0.1', 8080).then((server) {
-    server.listen((HttpRequest request) {
-      request.response..write('Hello, world')
-                      ..close();
-    });
-  });
-}
+ main() {
+   HttpServer.bind('127.0.0.1', 8080).then((server) {
+     server.listen((HttpRequest request) {
+       request.response..write('Hello, world')
+                       ..close();
+     });
+   });
+ }
 </pre>
 
         </section>
@@ -814,15 +822,15 @@ main() {
 
 
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>// Le répertoire des fichiers web
-final webDir = Platform.script.resolve('../web').toFilePath();
-// Les régles du serveur de fichiers
-final vDir = new VirtualDirectory(webDir)
-          ..jailRoot = false
-          ..followLinks = true
-          ..allowDirectoryListing = true;
-// Association aux requêtes entrantes
-vDir.serveRequest(request);
+<em><span class="remark">lang-dart</span></em> // Le répertoire des fichiers web
+ final webDir = Platform.script.resolve('../web').toFilePath();
+ // Les régles du serveur de fichiers
+ final vDir = new VirtualDirectory(webDir)
+           ..jailRoot = false
+           ..followLinks = true
+           ..allowDirectoryListing = true;
+ // Association aux requêtes entrantes
+ vDir.serveRequest(request);
 </pre>
             </section>
 
@@ -840,19 +848,17 @@ vDir.serveRequest(request);
 
 
             <pre class="programlisting">
-<em><span class="remark">lang-dart</span></em>WebSocketTransformer.upgrade(request).then((WebSocket ws){
-    // Envoi message
-    ws.add("Hello");
-    // Ecoute les événements qui arrive et les affiche
-    ws.listen(print);
-});
+<em><span class="remark">lang-dart</span></em> WebSocketTransformer.upgrade(request).then((WebSocket ws){
+     // Envoi message
+     ws.add("Hello");
+     // Ecoute les événements qui arrive et les affiche
+     ws.listen(print);
+ });
 </pre>
 
             </section>
 
         </section>
-
-
 
         <!-- Polymer -->
 
@@ -883,27 +889,6 @@ vDir.serveRequest(request);
 
                 <img src="lib/img/polymer-architecture.jpg">
             </section>
-
-            <!-- Polyfills
-            <section
-                    data-background="lib/img/slide-devoxx-bg.png"
-                    data-background-size="6% 90%"
-                    data-background-transition="slide"
-                    data-background-position="0% 25%">
-                    <h4>Polyfills</h4>
-
-                    <img src="lib/img/polymer-architecture.jpg">
-            </section>
-
-
-            <section
-                    data-background="lib/img/slide-devoxx-bg.png"
-                    data-background-size="6% 90%"
-                    data-background-transition="slide"
-                    data-background-position="0% 25%">
-                    <h4>Web component</h4>
-            </section>
-            -->
 
         </section>
 
@@ -1020,7 +1005,7 @@ vDir.serveRequest(request);
 </pre>
                 <br>
                 <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em>@observable String name;
+<em><span class="remark">lang-dart</span></em> @observable String name;
 </pre>
             </section>
 
