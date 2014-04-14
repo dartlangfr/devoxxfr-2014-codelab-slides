@@ -55,6 +55,72 @@
             <div class="orange">@a14n @GirouGuillaume @MatBreton @NicoFrancois</div>
         </section>
 
+        <section data-background="lib/img/seine.jpg"
+                 data-background-transition="slide"
+                 data-transition="linear"
+                 class="header center">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2 class="text-white">Avant de commencer</h2>
+            </div>
+        </section>
+
+        <!-- Pourquoi -->
+
+        <section>
+            <h3>Pourquoi ?</h3>
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+
+
+                    <div class="fragment">Nouveau langage pour le web</div>
+                    <br/>
+                    <div class="fragment">Répond aux problématiques d'aujourd'hui</div>
+                <br/>
+                     <div class="fragment">Performance</div>
+                <br/>
+                <div class="fragment">Moderne</div>
+
+            </section>
+
+        </section>
+
+        <section>
+            <h3>Disruptif ?</h3>
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+
+                   // TODO
+
+            </section>
+
+        </section>
+
+        <section>
+            <h3>Objectifs du codelab</h3>
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+
+
+                <div>Etre capable de développer une application web moderne</div>
+
+            </section>
+
+        </section>
+
+
+
         <section
                 data-background="lib/img/title-bg.png"
                 data-background-transition="slide"
@@ -67,6 +133,10 @@
                 <h2 class="text-white">Introduction au langage</h2>
             </div>
         </section>
+
+
+
+
 
         <!-- main -->
         <section>
@@ -150,6 +220,7 @@ Hello Devoxx France
    }
    return result;
  }
+ </pre>
 
             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em> say('Bob', 'Howdy');
@@ -734,12 +805,31 @@ unittest-suite-success
         </section>
 
         <section>
+            <h3>Votre mission</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+
+                <img src="lib/img/risk.jpg">
+            </section>
+
+        </section>
+
+        <section>
             <h3>Déroulement</h3>
             <section
                     data-background="lib/img/slide-devoxx-bg.png"
                     data-background-size="6% 90%"
                     data-background-transition="slide"
                     data-background-position="0% 25%">
+
+                <ul>
+                    <li>Partie core</li>
+                    <li>Partie UI</li>
+                    <li>Partie Server</li>
+                </ul>
            </section>
 
         </section>
@@ -928,6 +1018,12 @@ unittest-suite-success
                    data-background-transition="slide"
                    data-background-position="0% 25%">
                <h4>HttpRequest</h4>
+                               <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> HttpRequest.getString('myU')
+            .then((String fileContents) {
+               //..
+             });
+</pre>
            </section>
 
            <!-- SVG -->
