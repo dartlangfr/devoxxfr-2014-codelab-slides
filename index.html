@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The Dart side of disruption</title>
+
+    <meta name="description" content="Codelab Dart DevoxxFR 2014  ">
+    <meta name="keywords" content="dart, dartlang, risk, codelab, devoxx, disruption">
+    <meta name="author" content="Dartlangfr">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/devoxx2014.css" id="theme">
+
+    <!-- Come from dartlang -->
+    <link rel="stylesheet" href="lib/css/dartlang.css">
+    <link rel="stylesheet" href="lib/css/dart-style.css">
+    <script src="lib/js/dartlang.js"></script>
+    <link rel="shortcut icon" href="favicon.png">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body onload="prettyPrint()">
+
+<div class="reveal">
+
+    <div class="slides">
+
+        <section data-id="cover"
+                 class="center"
+                 data-background="lib/img/cover-bg.png"
+                 data-background-transition="slide"
+                 data-transition="linear">
+            <h1>The Dart side of disruption</h1>
+
+            <div class="orange">@a14n @GirouGuillaume @MatBreton @NicoFrancois</div>
+        </section>
+
+        <section data-background="lib/img/seine.jpg"
+                 data-background-transition="slide"
+                 data-transition="linear"
+                 class="header center">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2 class="text-white">Avant de commencer</h2>
+            </div>
+        </section>
+
+        <!-- Pourquoi -->
+
+        <section>
+            <h3>Pourquoi ?</h3>
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+
+
+                    <div class="fragment">Nouveau langage pour le web</div>
+                    <br/>
+                    <div class="fragment">Répond aux problématiques d'aujourd'hui</div>
+                <br/>
+                     <div class="fragment">Performance</div>
+                <br/>
+                <div class="fragment">Moderne</div>
+
+            </section>
+
+        </section>
+
+        <section>
+
+            <h3>Disruptif ?</h3>
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+            <div class="fragment">
+                <h4>Définition</h4>
+                <blockquote cite="http://fr.wikipedia.org/wiki/Technologie_de_rupture">Une technologie de rupture, également connue comme « rupture technologique », est une
+                    innovation technologique qui porte sur un produit ou un service et qui finit par remplacer une
+                    technologie dominante sur un marché. <b>(Wikipedia)</b></blockquote>
+
+
+                   <img src="lib/img/earlyadopters.png" class="fragment"/>
+            </div>
+            </section>
+
+        </section>
+
+        <section>
+            <h3>Objectif de l'atelier</h3>
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+
+
+                <div>Etre capable de développer une application web moderne</div>
+
+            </section>
+
+        </section>
+
+
+
+        <section
+                data-background="lib/img/title-bg.png"
+                data-background-transition="slide"
+                data-transition="linear"
+                class="header center">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2 class="text-white">Introduction au langage</h2>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- main -->
+        <section>
+            <h3>1er pas</h3>
+            <section data-id="intro-main-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Hello world</h4>
+                <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> void main(){
+     var hello = "Hello Devoxx France";
+     print(hello);
+ }
+</pre>
+<br>
+<pre class="fragment">
+Hello Devoxx France
+</pre>
+            </section>
+
+            <section data-id="intro-main-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Fonction top level</h4>
+                <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> void main(){
+     var who = "Devoxx France";
+     print(sayHello(who));
+ }
+
+ String sayHello(String name) =>  "Hello $name"
+</pre>
+<br>
+<pre class="fragment">
+Hello Devoxx France
+</pre>
+            </section>
+
+
+        </section>
+
+        <!-- Parameters -->
+
+        <section>
+            <h3>Paramètres</h3>
+            <!-- Optional named parameters -->
+            <section data-id="intro-param-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Paramètres optionnels nommés</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> // Affecte les flags bold et hidden à leur valeurs.
+ enableFlags({bool bold, bool hidden}) {
+   // ...
+ }
+</pre>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> enableFlags(bold: true, hidden: false);
+</pre>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> enableFlags(hidden: false, bold: true);
+</pre>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> enableFlags(hidden : true);
+</pre>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> enableFlags();
+</pre>
+            </section>
+
+            <!-- Optional named parameters -->
+
+            <section data-id="intro-param-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Paramètres optionnels positionnés</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> String say(String from, String msg, [String device]) {
+   var result = '$from says $msg';
+   if (device != null) {
+     result = '$result with a $device';
+   }
+   return result;
+ }
+ </pre>
+
+            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> say('Bob', 'Howdy');
+ // 'Bob says Howdy'
+ say('Bob', 'Howdy', 'smoke signal');
+ // 'Bob says Howdy with a smoke signal'
+</pre>
+            </section>
+
+        </section>
+
+        <!-- Classes -->
+        <section>
+            <h3>Classes</h3>
+            <!-- Fist class -->
+            <section data-id="intro-class-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Ma 1ère classe</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> class MaClasse {
+
+ }
+</pre>
+                <br/>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> var classe = new MaSuperClasse();
+ MaSuperClasse unAutreClasse = new MaSuperClasse();
+</pre>
+            </section>
+            <!-- Fist class -->
+            <section data-id="intro-class-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Classe avec getter/setter</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> class Person {
+   // Visibilité restreinte par le _
+   String _name;
+   String get name => _name;
+   set name(val) => _name = val;
+ }
+</pre>
+<br/>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> var p = new Person();
+ p.name = "John"; // Set
+ var name = p.name; // Get
+</pre>
+            </section>
+            <!-- Fist class -->
+            <section data-id="intro-class-1"
+                             data-background="lib/img/slide-devoxx-bg.png"
+                             data-background-size="6% 90%"
+                             data-background-transition="slide"
+                             data-background-position="0% 25%">
+                        <h4>Classe complète</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> import 'dart:math';
+
+ class Point {
+   final int x, y;
+   Point(this.x, this.y);
+   num distanceTo(Point other) {
+     var dx = x - other.x;
+     var dy = y - other.y;
+     return sqrt(dx * dx + dy * dy);
+   }
+   String toString() => "($x, $y)";
+ }
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> var p = new Point(2, 3);
+ print(p);// Affiche '(2, 3)'
+ var x = p.x;
+ var distance = p.distanceTo(new Point(5, 5));
+</pre>
+                </section>
+
+            <!-- Extends class -->
+            <section data-id="intro-class-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Héritage</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> class Person {
+   Person.fromJson(Map data) {
+     print('in Person');
+   }
+ }
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> class Employee extends Person {
+   // Person n'a pas de constructeur par défaut
+   // Il faut appeler super.fromJson(data).
+   Employee.fromJson(Map data) : super.fromJson(data) {
+     print('in Employee');
+   }
+ }
+</pre>
+            </section>
+
+            <!-- Implements class -->
+            <section data-id="intro-class-3"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Implémentation</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> // Person est une interface implicite contient greet().
+ class Person {
+   // Dans l'interface mais visible dans la bibliothèque
+   final _name;
+   // Pas dans l'interface car c'est une constructeur
+   Person(this._name);
+   // Méthode de l'interface
+   String greet(who) => 'Hello, $who. I am $_name.';
+ }
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // Une implémentation de Person.
+ class Imposter implements Person {
+   // On le définit mais on ne l'utilise pas
+   final _name = "";
+   String greet(who) => 'Hi $who. Do you know who I am?';
+ }
+</pre>
+            </section>
+
+            <!-- Mixin class -->
+            <section data-id="intro-class-4"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Mixin</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> // Un mixin doit
+ // étendre Object, ne pas avoir de constructeur, pas d'appel à super
+ abstract class Musical {
+   bool canPlayPiano = false;
+   bool canCompose = false;
+   bool canConduct = false;
+
+   void entertainMe() {
+     //
+   }
+ }
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> class Musician extends Performer with Musical {
+   Musician(String musicianName) {
+     name = musicianName;
+     canConduct = true;
+   }
+ }
+</pre>
+            </section>
+
+        </section>
+
+        <!-- Constructors -->
+        <section>
+            <h3>Constructeurs</h3>
+            <!-- Constructeurs nommés -->
+            <section data-id="intro-constructor-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Constructeur nommé</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> import 'dart:math';
+
+ class Point {
+   num x, y;
+   Point(this.x, this.y);
+   Point.zero() : x = 0, y = 0;
+   Point.polar(num theta, num radius) {
+     x = cos(theta) * radius;
+     y = sin(theta) * radius;
+   }
+ }
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> Point p1 = new Point.zero();
+ Point p2 = new Point.polar(0, 1);
+</pre>
+            </section>
+
+            <!-- Factory -->
+
+            <section data-id="intro-constructor-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Factory</h4>
+                            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> class Logger {
+   final String name;
+     bool mute = false;
+
+     static final Map&lt;String, Logger&gt; _cache = &lt;String, Logger&gt;{};
+
+     factory Logger(String name) => _cache.putIfAbsent(name, () =>
+          new Logger._internal(name));
+
+     Logger._internal(this.name);
+   }
+
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> Logger logger = new Logger("foo");
+</pre>
+            </section>
+
+        </section>
+
+        <!-- Collection -->
+
+        <section>
+            <h3>Collections</h3>
+            <!-- List -->
+            <section data-id="intro-collection-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>List</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> // Creation de listes
+ var vegetables = [] // == new List();
+ var fruits = ['apples', 'oranges'];
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // Ajout d'éléments
+ fruits.add('kiwis');
+ fruits.addAll(['grapes', 'bananas']);
+ assert(fruits.length == 5);
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // Tri
+ fruits.sort();
+ assert(fruits[0] == 'apples');
+</pre>
+            </section>
+
+            <!-- Map -->
+            <section data-id="intro-collection-3"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Map</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> var gifts = {
+   // Keys       Values
+   'first'  : 'partridge',
+   'second' : 'turtledoves',
+   'fifth'  : 'golden rings'
+ };
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> gifts['fourth'] = 'calling birds';    // Add a key-value pair
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> assert(gifts['first'] == 'partridge')
+ assert(gifts.length == 4);
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> var keys = gifts.keys;
+ var values = gifts.values;
+</pre>
+            </section>
+
+            <!-- Set -->
+            <section data-id="intro-collection-2"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Set</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> // Création
+ var ingredients = new Set();
+ ingredients.addAll(['gold', 'titanium', 'xenon']);
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // Intersection
+ var nobleGases = new Set.from(['xenon', 'argon']);
+ var intersection = ingredients.intersection(nobleGases);
+ assert(intersection.length == 1);
+ assert(intersection.contains('xenon'));
+</pre>
+            </section>
+
+            <!-- Lambda-->
+            <section data-id="intro-collection-4"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Lamdba</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> var teas = ['green', 'black', 'chamomile', 'earl grey'];
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // Affichage en majuscule
+ var loudTeas = teas.map((tea) => tea.toUpperCase());
+ loudTeas.forEach(print);
+</pre>
+                                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // La camomille n'est pas caéfinée.
+ bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // Filtrage
+ var decaffeinatedTeas = teas.where(isDecaffeinated);
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // Construction map
+ var decaffeinatedTeasMap =
+    new Map.fromIterable(teas, value: isDecaffeinated);
+</pre>
+        </section>
+
+      </section>
+
+         <!-- Async -->
+         <section>
+            <h3>Asynchronisme</h3>
+
+             <!-- Future -->
+             <section data-id="intro-async-1"
+                      data-background="lib/img/slide-devoxx-bg.png"
+                      data-background-size="6% 90%"
+                      data-background-transition="slide"
+                      data-background-position="0% 25%">
+                 <h4>Future</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> Future result = costlyQuery();
+
+ // Enchainer méthodes
+ return result.then((value) => expensiveWork())
+              .then((value) => lengthyComputation())
+              .then((value) => print('done!'))
+              // Gestion erreur
+              .catchError((exception) => print('DOH!'))
+</pre>
+             </section>
+
+             <!-- Stream -->
+             <section data-id="intro-async-1"
+                      data-background="lib/img/slide-devoxx-bg.png"
+                      data-background-size="6% 90%"
+                      data-background-transition="slide"
+                      data-background-position="0% 25%">
+                 <h4>Stream</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> // Trouver un bouton et ajouter un listener
+ querySelector('#submitInfo').onClick.listen((e) {
+   // Quand le bouton est cliqué, ce code est exécuté
+   submitData();
+ });
+</pre>
+             </section>
+
+        </section>
+
+        <!-- Divers -->
+        <section>
+            <h3>Divers</h3>
+            <!-- Stream -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Metadata</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> class Television {
+   /// _Deprecated: Utiliser [turnOn]._
+   @deprecated
+   void activate() {
+     turnOn();
+   }
+
+   void turnOn() {
+     _illuminateDisplay();
+     _activateIrSensor();
+   }
+ }
+</pre>
+                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> class SmartTelevision extends Television {
+   @override
+   void turnOn() {
+     super.turnOn();
+     _bootNetworkInterface();
+   }
+ }
+</pre>
+            </section>
+
+            <!-- Cascade -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Cascade</h4>
+
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> var button = querySelector('#button');
+ button.text = 'Click to Confirm';
+ button.classes.add('important');
+ button.onClick.listen((e) => window.alert('Confirmed!'));
+</pre>
+            <br/>
+            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> querySelector('#button')
+             ..text = 'Click to Confirm'
+             ..classes.add('important')
+             ..onClick.listen((e) => window.alert('Confirmed!'));
+</pre>
+
+            </section>
+
+        </section>
+
+        <!-- Outils -->
+        <section>
+            <h3>Outils</h3>
+
+            <!-- Bibliothèques -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%"
+                     >
+                <h4>Bibliothèques</h4>
+                <br>
+                <table class="reveal">
+                    <thead>
+                        <tr>
+                            <th colspan=2>Interne</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="emph">dart:io</td>
+                        <td>Entrée/Sortie système</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">dart:math</td>
+                        <td>Calcul, génération aléatoire, ...</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">dart:convert</td>
+                        <td>Codec de convertion (JSon, ... )</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">dart:html</td>
+                        <td>Manipulation DOM</td>
+                    </tr>
+                </table>
+                <br>
+                <table class="reveal fragment">
+                    <thead>
+                        <tr>
+                            <th colspan=2>Externe</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="emph">unittest</td>
+                        <td>Tests unitaires</td>
+                    </tr>
+                    <tr>
+                        <td class="emph">Polymer</td>
+                        <td>Web components</td>
+                    </tr>
+                </table>
+             </section>
+
+            <!-- Import -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Déclaration librairies/Import</h4>
+<pre class="programlisting"><em><span class="remark"></span></em> library bestWebApp;
+
+ part 'src/crazyImpl.dart';
+ part 'src/wonderfullUI.dart';
+
+ import 'dart:html';
+ import 'package:polymer/polymer.dart';
+
+</pre>
+ <pre class="programlisting fragment"><em><span class="remark"></span></em> // crazyImpl.dart
+ part of bestWebApp;
+
+</pre>
+            </section>
+
+            <!-- Pub -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Pub</h4>
+                <h6><i>pubspec.yaml</i></h6>
+<pre class="programlisting"><em><span class="remark">lang-js
+</span></em>name: my_app
+dependencies:
+  polymer: ">=0.9.5 <0.10.0"
+dev_dependencies:
+  unittest: any
+transformers:
+- polymer:
+    entry_points: web/index.html
+</pre>
+<br/>
+<pre class="programlisting fragment"><em><span class="remark">lang-sh</span></em>pub get</pre>
+<pre class="programlisting fragment"><em><span class="remark">lang-sh</span></em>pub build</pre>
+            </section>
+
+            <!-- Test -->
+            <section data-id="intro-async-1"
+                     data-background="lib/img/slide-devoxx-bg.png"
+                     data-background-size="6% 90%"
+                     data-background-transition="slide"
+                     data-background-position="0% 25%">
+                <h4>Test</h4>
+<pre class="programlisting"><em><span class="remark">lang-dart</span></em> import 'package:unittest/unittest.dart';
+
+ main(){
+
+   test('Un test simple', () => expect(2+2, 4));
+
+   group('Test plus complexe', () {
+     setUp(() {/*...*/});
+     tearDown(() {/*...*/});
+     test('Test complexe 1', () {/*...*/});
+     test('Test complexe 2', () {/*...*/});
+   });
+ }
+</pre>
+  <pre class="fragment">unittest-suite-wait-for-done
+PASS: Un test simple
+PASS: Test plus complexe Test complexe 1
+PASS: Test plus complexe Test complexe 2
+
+All 3 tests passed.
+unittest-suite-success
+ </pre>
+            </section>
+
+        </section>
+
+        <!-- Explication codelab -->
+
+        <section data-id="explication-codelab"
+                 data-background="lib/img/title2-bg.png"
+                 data-background-transition="slide"
+                 data-transition="linear"
+                 class="header center">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2>Explication du codelab</h2>
+            </div>
+        </section>
+
+        <section>
+            <h3>Votre mission</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+
+                <img src="lib/img/risk.jpg"/>
+
+                <a href="http://goo.gl/GLZxvx" target="_blank">goo.gl/GLZxvx</a>
+            </section>
+
+        </section>
+
+        <section>
+            <h3>Architecture</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+
+
+                <img src="lib/img/archi_codelab.png" />
+
+             </section>
+
+        </section>
+
+
+        <section>
+            <h3>Déroulement</h3>
+            <section class="left"
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+
+                <ul>
+                    <li>Partie core</li>
+                    <li>Partie UI</li>
+                    <li>Partie Server</li>
+                </ul>
+           </section>
+
+        </section>
+
+        <section>
+            <h3>Démo</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+            </section>
+
+
+        </section>
+
+        <!-- Polymer -->
+
+        <section data-id="explication-codelab"
+                 data-background="lib/img/spleen.jpg"
+                 data-background-transition="slide"
+                 data-transition="linear"
+                 class="header center">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2>Polymer</h2>
+            </div>
+        </section>
+
+        <section>
+
+            <h3>Architecture</h3>
+
+            <!-- Polyfills -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Organisation projet</h4>
+
+                <img src="lib/img/polymer-architecture.jpg">
+            </section>
+
+        </section>
+
+        <section>
+            <h3>Fondation</h3>
+
+            <!-- Custom Element -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Custom Elements</h4>
+ <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;x-click-counter&gt;&lt;/x-click-counter&gt;
+</pre>
+                <br>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;element name="x-click-counter"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+        /* Css */
+    &lt;/style&gt;
+    &lt;-- Html --&gt;
+  &lt;/template&gt;
+  &lt;-- Code Dart --&gt;
+  &lt;script src="click_counter.dart"&gt;&lt;/script&gt;
+&lt;/element&gt;
+</pre>
+            </section>
+
+            <!-- HTML Template -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>HTML Template</h4>
+            <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;template id="monSuperTemplate"&gt;
+  &lt;div class="super-style" &gt;
+  &lt;/div&gt;
+  &lt!-- Plein de html --&gt;
+&lt;/template&gt;
+</pre>
+<br>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;template if="{{maCondition}}"&gt;
+</pre>
+<br>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;template repeat="{{maList}}"&gt;
+</pre>
+            </section>
+
+            <!-- Shadow DOM -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Shadow DOM</h4>
+ <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;video controls src="/ma/super/video"&gt;&lt;/video&gt;
+</pre>
+                <br>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;video controls="" height="300" src="/ma/super/video"&gt;
+  <em>#shadow-root</em>
+  &lt;div&gt;
+    &lt;div&gt;
+      &lt;div&gt;
+        &lt;input type="button"&gt;
+        &lt;input type="range" precision="float" max="596.48"&gt;
+        &lt;div style="display: none;"&gt;0:00&lt;/div&gt;&lt;div&gt;9:56&lt;/div&gt;
+          &lt;input type="button"&gt;
+          &lt;input type="range" precision="float" max="1" style=""&gt;
+          &lt;input type="button" style="display: none;"&gt;
+          &lt;input type="button" style=""&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/video&gt;
+</pre>
+            </section>
+
+            <!-- HTML Import -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>HTML Import</h4>
+<pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;head&gt;
+    &lt;!-- Plein de déclaration --&gt;
+    &lt;link rel="import" href="/components/click_counter.html"&gt;
+&lt;/head&gt;
+</pre>
+            </section>
+
+            <!-- Observer -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Observer</h4>
+
+                <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;div&gt;
+  {{name}}
+&lt;/div&gt;
+</pre>
+                <br>
+                <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> @observable String name;
+</pre>
+            </section>
+
+        </section>
+
+       <section>
+           <h3>Communication serveur</h3>
+           <!-- HttpRequest -->
+           <section
+                   data-background="lib/img/slide-devoxx-bg.png"
+                   data-background-size="6% 90%"
+                   data-background-transition="slide"
+                   data-background-position="0% 25%">
+               <h4>HttpRequest</h4>
+                               <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> HttpRequest.getString('myU')
+            .then((String fileContents) {
+               //..
+             });
+</pre>
+           </section>
+
+
+       </section>
+
+
+        <!-- Serveur -->
+
+        <section data-background="lib/img/louvre.jpg"
+                 data-background-transition="slide"
+                 data-transition="linear"
+                 class="header center">
+            <div class="rotate45">
+                <div class="cyan">&nbsp;</div>
+                <div class="orange">&nbsp;</div>
+                <div class="white">&nbsp;</div>
+                <h2>Dart coté serveur</h2>
+            </div>
+        </section>
+
+
+        <!-- Serveur Http -->
+        <section>
+            <h3>Serveur Http</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+
+
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> import 'dart:io';
+
+ main() {
+   HttpServer.bind('127.0.0.1', 8080).then((server) {
+     server.listen((HttpRequest request) {
+       request.response..write('Hello, world')
+                       ..close();
+     });
+   });
+ }
+</pre>
+
+            </section>
+
+        </section>
+
+        <!-- Virtual Directory -->
+
+        <section>
+            <h3>Virtual Directory</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+
+
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> // Le répertoire des fichiers web
+ final webDir = Platform.script.resolve('../web').toFilePath();
+ // Les régles du serveur de fichiers
+ final vDir = new VirtualDirectory(webDir)
+           ..jailRoot = false
+           ..followLinks = true
+           ..allowDirectoryListing = true;
+ // Association aux requêtes entrantes
+ vDir.serveRequest(request);
+</pre>
+            </section>
+
+        </section>
+
+        <!-- WebSocket -->
+
+        <section>
+            <h3>WebSocket</h3>
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+
+
+            <pre class="programlisting">
+<em><span class="remark">lang-dart</span></em> WebSocketTransformer.upgrade(request).then((WebSocket ws){
+     // Envoi message
+     ws.add("Hello");
+     // Ecoute les événements qui arrive et les affiche
+     ws.listen(print);
+ });
+</pre>
+
+            </section>
+
+        </section>
+
+        <!-- TODO question -->
+        <!-- TODO Resources -->
+
+
+    </div>
+
+    <div id="footer">
+        <span id="hashtag">#dartlang #DevoxxFR</span>
+        <span id="twitter-author"><a href="http://goo.gl/6DyjQu"> http://goo.gl/6DyjQu</a></span>
+    </div>
+</div>
+
+    <script src="js/reveal.min.js"></script>
+
+
+    <script>
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: false,
+            keyboard: true,
+            slideNumber: true,
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+            ]
+        });
+
+    </script>
+
+</body>
+</html>
