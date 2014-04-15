@@ -8,7 +8,7 @@
 
     <meta name="description" content="Codelab Dart DevoxxFR 2014  ">
     <meta name="keywords" content="dart, dartlang, risk, codelab, devoxx, disruption">
-    <meta name="author" content="Dartlangfr">codela
+    <meta name="author" content="Dartlangfr">
 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -113,7 +113,7 @@
         </section>
 
         <section>
-            <h3>Objectifs du codelab</h3>
+            <h3>Objectif du l'atelier</h3>
             <section data-id="intro-param-1"
                      data-background="lib/img/slide-devoxx-bg.png"
                      data-background-size="6% 90%"
@@ -207,8 +207,17 @@ Hello Devoxx France
    // ...
  }
 </pre>
- <pre class="programlisting">
+ <pre class="programlisting fragment">
 <em><span class="remark">lang-dart</span></em> enableFlags(bold: true, hidden: false);
+</pre>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> enableFlags(hidden: false, bold: true);
+</pre>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> enableFlags(hidden : true);
+</pre>
+ <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> enableFlags();
 </pre>
             </section>
 
@@ -230,7 +239,7 @@ Hello Devoxx France
  }
  </pre>
 
-            <pre class="programlisting">
+            <pre class="programlisting fragment">
 <em><span class="remark">lang-dart</span></em> say('Bob', 'Howdy');
  // 'Bob says Howdy'
  say('Bob', 'Howdy', 'smoke signal');
@@ -258,6 +267,7 @@ Hello Devoxx France
                 <br/>
 <pre class="programlisting fragment">
 <em><span class="remark">lang-dart</span></em> var classe = new MaSuperClasse();
+ MaSuperClasse unAutreClasse = new MaSuperClasse();
 </pre>
             </section>
             <!-- Fist class -->
@@ -269,6 +279,7 @@ Hello Devoxx France
                 <h4>Classe avec getter/setter</h4>
                             <pre class="programlisting">
 <em><span class="remark">lang-dart</span></em> class Person {
+   // Visibilité restreinte par le _
    String _name;
    String get name => _name;
    set name(val) => _name = val;
@@ -292,7 +303,7 @@ Hello Devoxx France
 <em><span class="remark">lang-dart</span></em> import 'dart:math';
 
  class Point {
-   final x, y;
+   final int x, y;
    Point(this.x, this.y);
    num distanceTo(Point other) {
      var dx = x - other.x;
@@ -542,13 +553,13 @@ Hello Devoxx France
 <em><span class="remark">lang-dart</span></em> var teas = ['green', 'black', 'chamomile', 'earl grey'];
 </pre>
                             <pre class="programlisting fragment">
-<em><span class="remark">lang-dart</span></em> // La camomille n'est pas caéfinée.
- bool isDecaffeinated(String teaName) => teaName == 'chamomile';
-</pre>
-                            <pre class="programlisting fragment">
 <em><span class="remark">lang-dart</span></em> // Affichage en majuscule
  var loudTeas = teas.map((tea) => tea.toUpperCase());
  loudTeas.forEach(print);
+</pre>
+                                            <pre class="programlisting fragment">
+<em><span class="remark">lang-dart</span></em> // La camomille n'est pas caéfinée.
+ bool isDecaffeinated(String teaName) => teaName == 'chamomile';
 </pre>
                             <pre class="programlisting fragment">
 <em><span class="remark">lang-dart</span></em> // Filtrage
@@ -820,16 +831,18 @@ unittest-suite-success
                     data-background-transition="slide"
                     data-background-position="0% 25%">
 
-                <img src="lib/img/risk.jpg">
+                <img src="lib/img/risk.jpg"/>
 
-                <a href="https://github.com/dartlangfr/risk-codelab">Risk codelab</a>
+                <a href="http://github.com/dartlangfr/risk">Atelier Risk</a>
             </section>
 
         </section>
 
+       </section>
+
         <section>
             <h3>Déroulement</h3>
-            <section
+            <section class="left"
                     data-background="lib/img/slide-devoxx-bg.png"
                     data-background-size="6% 90%"
                     data-background-transition="slide"
@@ -841,18 +854,6 @@ unittest-suite-success
                     <li>Partie Server</li>
                 </ul>
            </section>
-
-        </section>
-
-        <section>
-            <h3>Régles</h3>
-            <section
-                    data-background="lib/img/slide-devoxx-bg.png"
-                    data-background-size="6% 90%"
-                    data-background-transition="slide"
-                    data-background-position="0% 25%">
-            </section>
-
 
         </section>
 
@@ -1148,7 +1149,7 @@ unittest-suite-success
 
     <div id="footer">
         <span id="hashtag">#dartlang #devoxxfr</span>
-        <span id="twitter-author">http://goo.gl/6DyjQu</span>
+        <span id="twitter-author"><a href="http://goo.gl/6DyjQu"> http://goo.gl/6DyjQu</a></span>
     </div>
 </div>
 

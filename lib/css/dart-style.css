@@ -1356,7 +1356,6 @@ a.permalink {
  * instead of this css.
  */
 a[href^="http"]:not(.btn):after {
-  content: "\e164";
   position: relative;
   top: 1px;
   display: inline-block;
