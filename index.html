@@ -918,6 +918,31 @@ unittest-suite-success
         <section>
             <h3>Fondation</h3>
 
+            <!-- Custom Element -->
+            <section
+                    data-background="lib/img/slide-devoxx-bg.png"
+                    data-background-size="6% 90%"
+                    data-background-transition="slide"
+                    data-background-position="0% 25%">
+                <h4>Custom Elements</h4>
+ <pre class="programlisting">
+<em><span class="remark">lang-html</span></em>&lt;x-click-counter&gt;&lt;/x-click-counter&gt;
+</pre>
+                <br>
+<pre class="programlisting fragment">
+<em><span class="remark">lang-html</span></em>&lt;element name="x-click-counter"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+        /* Css */
+    &lt;/style&gt;
+    &lt;-- Html --&gt;
+  &lt;/template&gt;
+  &lt;-- Code Dart --&gt;
+  &lt;script src="click_counter.dart"&gt;&lt;/script&gt;
+&lt;/element&gt;
+</pre>
+            </section>
+
             <!-- HTML Template -->
             <section
                     data-background="lib/img/slide-devoxx-bg.png"
@@ -970,31 +995,6 @@ unittest-suite-success
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/video&gt;
-</pre>
-            </section>
-
-            <!-- Custom Element -->
-            <section
-                    data-background="lib/img/slide-devoxx-bg.png"
-                    data-background-size="6% 90%"
-                    data-background-transition="slide"
-                    data-background-position="0% 25%">
-                <h4>Custom Elements</h4>
- <pre class="programlisting">
-<em><span class="remark">lang-html</span></em>&lt;x-click-counter&gt;&lt;/x-click-counter&gt;
-</pre>
-<br>
-<pre class="programlisting fragment">
-<em><span class="remark">lang-html</span></em>&lt;element name="x-click-counter"&gt;
-  &lt;template&gt;
-    &lt;style&gt;
-        /* Css */
-    &lt;/style&gt;
-    &lt;-- Html --&gt;
-  &lt;/template&gt;
-  &lt;-- Code Dart --&gt;
-  &lt;script src="click_counter.dart"&gt;&lt;/script&gt;
-&lt;/element&gt;
 </pre>
             </section>
 
